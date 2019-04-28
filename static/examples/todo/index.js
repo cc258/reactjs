@@ -32,7 +32,7 @@ const mount = document.getElementById("app");
 render(
   // navigator.language
   <Provider store={store}>
-    <IntlProvider locale={'zh'} key={'zh'} locale={'zh'} messages={zh_CN}>
+    <IntlProvider locale={'en'} key={'en'} locale={'en'} messages={en_US}>
       <Todos />
     </IntlProvider>
   </Provider>,

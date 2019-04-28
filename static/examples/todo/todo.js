@@ -14,7 +14,7 @@ class Todo extends React.Component {
     const { list, changeStatus, getData } = this.props;
     return (
       <div>
-        <h1 onClick={getData}><FormattedMessage id="hello" values={{name}} />123</h1>
+        <h1 onClick={getData}><FormattedMessage id="hello" values={{name}} /></h1>
         <div className="new">
           <input
             className="newInput"
@@ -31,6 +31,7 @@ class Todo extends React.Component {
 
   setNewTodo = e => {
     console.log(e.target.value);
+    // 替换前后空格
     const d = e.target.value.replace(/(^\s*)|(\s*$)/g, '');
 
     this.setState({
