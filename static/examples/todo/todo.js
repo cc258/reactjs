@@ -13,11 +13,11 @@ class Todo extends React.Component {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
     console.log('PROPS:', this.props);
-    // const { formatMessage } = this.props.intl;
+    const { formatMessage } = this.props.intl;
     return (
       <div>
         <h1 onClick={getData}><FormattedMessage id="examples_todo_index_title" values={{name}} /></h1>
-        {/* <h1 onClick={getData}>{formatMessage({id: 'hello'})}</h1> */}
+        <h1 onClick={getData}>{formatMessage({id: 'examples_todo_index_title_message'})}</h1>
         <div className="new">
           <input
             className="newInput"
