@@ -1,5 +1,5 @@
 const en_US = {
-    hello: 'Hello! {name}',
+    examples_todo_index_title: 'Hello! {name}',
 };
 
 export default en_US;

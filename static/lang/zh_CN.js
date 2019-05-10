@@ -1,5 +1,5 @@
 const zh_CN = {
-    hello: '你好! {name}',
+    examples_todo_index_title: '你好! {name}',
 };
 
 export default zh_CN;
