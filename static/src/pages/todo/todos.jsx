@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { actions } from "./todos.reducer";
-import { FormattedMessage } from 'react-intl';
-import Todo from "./todo";
+import Todo from "./todo.jsx";
+
+import "./todo.css";
 
 class Todos extends React.Component {
   // 重要的一点：所有的组件都应当有propTypes验证。

@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: ["./static/examples/todo/index.js"],
+  entry: ["./static/src/index.jsx"],
   // 使用 source map
   // 当 webpack 打包源代码时，可能会很难追踪到错误和警告在源代码中的原始位置。
   // 例如，如果将三个源文件（a.js, b.js 和 c.js）打包到一个 bundle（bundle.js）中，

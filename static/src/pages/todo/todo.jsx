@@ -1,23 +1,30 @@
 import React from "react";
-import TodoList from "./todolist";
-import { FormattedMessage  } from 'react-intl';
+import TodoList from "./todolist.jsx";
+import { FormattedMessage, injectIntl } from "react-intl";
 
 class Todo extends React.Component {
   // 初始化state (ES7) 或者在构造函数(constructor)中初始化state (ES6)
   state = {
     newTodo: "",
-    name: "Leo",
+    name: "Leo"
   };
 
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    console.log('PROPS:', this.props);
+    console.log("PROPS:", this.props);
     const { formatMessage } = this.props.intl;
     return (
       <div>
-        <h1 onClick={getData}><FormattedMessage id="examples_todo_index_title" values={{name}} /></h1>
-        <h1 onClick={getData}>{formatMessage({id: 'examples_todo_index_title_message'})}</h1>
+        <h1 onClick={getData}>
+          <FormattedMessage id="examples_todo_index_title" values={{ name }} />
+        </h1>
+        <h1 onClick={getData}>
+          {formatMessage(
+            { id: "examples_todo_index_title_message" },
+            { name: "Leo" }
+          )}
+        </h1>
         <div className="new">
           <input
             className="newInput"
@@ -35,7 +42,7 @@ class Todo extends React.Component {
   setNewTodo = e => {
     console.log(e.target.value);
     // 替换前后空格
-    const d = e.target.value.replace(/(^\s*)|(\s*$)/g, '');
+    const d = e.target.value.replace(/(^\s*)|(\s*$)/g, "");
 
     this.setState({
       newTodo: d
@@ -50,9 +57,9 @@ class Todo extends React.Component {
     }
     addTodo(list, newTodo);
     this.setState({
-      newTodo: ''
+      newTodo: ""
     });
   };
 }
 
-export default Todo;
+export default injectIntl(Todo);
