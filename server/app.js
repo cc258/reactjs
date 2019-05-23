@@ -16,7 +16,7 @@ app.use(static(path.resolve(__dirname, public)));
 app.use(
   koaNunjucks({
     ext: "html",
-    path: path.resolve(__dirname, "../static/views"),
+    path: path.resolve(__dirname, "../static/src"),
     nunjucksConfig: {
       trimBlocks: true
     }
@@ -33,5 +33,7 @@ app.use(
 app.use(require("./router").routes());
 app.listen(port);
 
-console.log('\033[43;30m DONE \033[40;32m http://localhost:'+ port +'/index \033[0m');
+console.log(
+  "\033[43;30m DONE \033[40;32m http://localhost:" + port + "/index \033[0m"
+);
 console.log("启动成功");

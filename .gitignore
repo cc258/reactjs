@@ -5,7 +5,6 @@ lib/
 target/
 database/
 eclipse/
+static/dist/
 tmp/
 node_modules
-
-com.md
