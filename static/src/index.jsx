@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 // international language
 import { addLocaleData, IntlProvider } from "react-intl";
@@ -14,8 +14,9 @@ import en_US from "../lang/en_US";
 import thunk from "redux-thunk";
 import todos from "./pages/todo/todos.reducer";
 
-import Todos from "./pages/todo/todos.jsx";
-import Hook from "./pages/hook/hook.jsx";
+import Routers from "./pages/routers/routers.jsx";
+
+import "./css/app.css";
 
 addLocaleData([...en, ...zh]);
 
@@ -34,25 +35,7 @@ render(
   // navigator.language
   <Provider store={store}>
     <IntlProvider locale={"en"} key={"en"} locale={"en"} messages={en_US}>
-      <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/todos/">Todos</Link>
-              </li>
-              <li>
-                <Link to="/hook/">Hook</Link>
-              </li>
-            </ul>
-          </nav>
-          <Route path="/todos/" component={Todos} />
-          <Route path="/hook/" component={Hook} />
-        </div>
-      </Router>
+      <Routers />
     </IntlProvider>
   </Provider>,
   mount

@@ -12,7 +12,6 @@ const TODO_GETDATA = "TODO_GETDATA";
 const initState = {};
 export default (state = initState, action) => {
   const data = action.data;
-  console.log('Todos reducer', data);
   switch (action.type) {
     case TODO_ADD:
       return Object.assign({}, state, data);
@@ -53,5 +52,5 @@ export const actions = {
         const data = res.data;
         dispatch({ type: TODO_GETDATA, data });
       });
-  },
+  }
 };

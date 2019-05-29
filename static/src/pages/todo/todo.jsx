@@ -12,13 +12,9 @@ class Todo extends React.Component {
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    console.log("PROPS:", this.props);
     const { formatMessage } = this.props.intl;
     return (
       <div>
-        <h1 onClick={getData}>
-          <FormattedMessage id="examples_todo_index_title" values={{ name }} />
-        </h1>
         <h1 onClick={getData}>
           {formatMessage(
             { id: "examples_todo_index_title_message" },
@@ -40,7 +36,6 @@ class Todo extends React.Component {
   };
 
   setNewTodo = e => {
-    console.log(e.target.value);
     // 替换前后空格
     const d = e.target.value.replace(/(^\s*)|(\s*$)/g, "");
 

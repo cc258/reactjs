@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import { actions } from "./todos.reducer";
 import Todo from "./todo.jsx";
 
-import "./todo.css";
-
 class Todos extends React.Component {
   // 重要的一点：所有的组件都应当有propTypes验证。
   // propTypes和defaultProps的声明应该置顶便于其他开发者阅读。
@@ -31,15 +29,17 @@ class Todos extends React.Component {
   // 提示： class严格来讲不是一个对象，class内定义的属性和方法并不需要用逗号','隔开。
   render = () => {
     const { list, addTodo, changeStatus, getData } = this.props;
-    console.log(`todo~~~~~~~~~~~~~~~~~~~~~~this.props~~~~~~~~~~`, this.props);
+
     return (
-      <div className="todo">
-        <Todo
-          list={list}
-          addTodo={addTodo}
-          changeStatus={changeStatus}
-          getData={getData}
-        />
+      <div className="pages todos">
+        <div className="todo-list">
+          <Todo
+            list={list}
+            addTodo={addTodo}
+            changeStatus={changeStatus}
+            getData={getData}
+          />
+        </div>
       </div>
     );
   };
