@@ -3,8 +3,8 @@ import ContextTheme from "./context-theme";
 import Demo from "./demo.jsx";
 
 const theme = {
-  night: "night",
-  light: "light",
+  dark: "dark",
+  blue: "blue",
   london: "London",
   guangzhou: "Guangzhou"
 };
