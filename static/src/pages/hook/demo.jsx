@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import ContextTheme from "./context-theme";
 
-export default function Demo(props) {
+export default function Demo() {
   const count = useCountNum(0);
   const cName = useNameValue("Chuang");
   const eName = useNameValue("Leo");
@@ -40,6 +40,7 @@ export default function Demo(props) {
 function useCountNum(v) {
   const [count, setCount] = useState(v);
   const handCount = () => {
+    setCount(count + 4);
     setCount(count + 1);
   };
 
