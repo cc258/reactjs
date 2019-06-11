@@ -5,10 +5,12 @@ p {
   margin: 0;
   padding: 0;
 }
+
 ul,
 ol {
   list-style: none;
 }
+
 image {
   vertical-align: middle;
 }
@@ -18,6 +20,7 @@ image {
   min-height: 100%;
   background: #f5f8fc;
 }
+
 h1 {
   font-size: 50px;
   cursor: pointer;
@@ -28,6 +31,7 @@ h1 {
   position: absolute;
   width: 100%;
 }
+
 .nav ul {
   display: flex;
   height: 30px;
@@ -35,10 +39,12 @@ h1 {
   color: white;
   background: black;
 }
+
 .nav li {
   flex: 1;
   text-align: center;
 }
+
 .nav a {
   color: whitesmoke;
   text-decoration: none;
@@ -57,17 +63,20 @@ h1 {
   background: #666;
   color: #fff;
 }
+
 .dark {
   background: #52294c url(./images/dark.png) no-repeat;
   background-position: 0 -167px;
   background-size: 100% auto;
 }
+
 .blue {
   background: #666 url(./images/blue.png) no-repeat;
   background-size: cover;
 }
+
 .hook section {
-  padding-top: 150px;
+  padding: 150px 0 30px;
 }
 
 .hook div {
@@ -75,12 +84,14 @@ h1 {
   font-size: 24px;
   border-bottom: 1px solid #ccc;
 }
+
 .hook button,
 .hook input {
   display: block;
-  margin: 20px auto;
+  margin: 0px auto 20px;
   font-size: 20px;
 }
+
 .hook input {
   width: 160px;
 }
@@ -89,6 +100,7 @@ h1 {
 .todos {
   background: url(./images/todos.png) no-repeat 100% 40%;
 }
+
 .todo-list {
   width: 500px;
 
@@ -96,6 +108,7 @@ h1 {
   font-size: 22px;
   line-height: 40px;
 }
+
 .todos li,
 .new {
   position: relative;
@@ -103,6 +116,7 @@ h1 {
   padding: 20px 40px;
   margin: 20px 0;
 }
+
 .new span {
   display: inline-block;
   width: 80px;
@@ -111,6 +125,7 @@ h1 {
   cursor: pointer;
   text-align: center;
 }
+
 .newInput {
   padding: 0 10px;
   width: 320px;
@@ -121,6 +136,7 @@ h1 {
   line-height: 40px;
   font-size: 22px;
 }
+
 .todos li span {
   position: absolute;
   top: 20px;
@@ -131,9 +147,11 @@ h1 {
   cursor: pointer;
   text-align: center;
 }
+
 .do-0 {
   color: #f95073;
 }
+
 .do-1 {
   color: #51e398;
 }
@@ -154,15 +172,19 @@ h1 {
 .format {
   text-align: center;
 }
+
 .format h2 {
   margin: 0;
 }
+
 .format .title {
   padding-top: 100px;
 }
+
 .format .msg {
   height: 60px;
 }
+
 .format .buttons {
   padding: 30px;
 }

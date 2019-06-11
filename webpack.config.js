@@ -25,6 +25,11 @@ module.exports = {
         loader: "babel-loader"
       },
       {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        loader: "awesome-typescript-loader"
+      },
+      {
         test: /\.css$/,
         use: [{ loader: "style-loader" }, { loader: "css-loader" }]
       },
@@ -36,14 +41,6 @@ module.exports = {
           }
         ]
       }
-      // {
-      //   test: /\.(png|jpg|gif)$/i,
-      //   use: [
-      //     {
-      //       loader: "file-loader"
-      //     }
-      //   ]
-      // }
     ]
   }
 };

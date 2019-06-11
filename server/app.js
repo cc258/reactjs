@@ -34,6 +34,6 @@ app.use(require("./router").routes());
 app.listen(port);
 
 console.log(
-  "\033[43;30m DONE \033[40;32m http://localhost:" + port + "/index \033[0m"
+  "\033[43;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"
 );
 console.log("启动成功");

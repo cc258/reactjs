@@ -1,7 +1,7 @@
 module.exports = class HomeController {
   static async index(ctx) {
     // ctx.body = "hi, index";
-    await ctx.render("index", { title: "To do" });
+    await ctx.render("index", { title: "8090" });
   }
 
   static async app(ctx) {

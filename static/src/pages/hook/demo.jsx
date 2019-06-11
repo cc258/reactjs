@@ -10,7 +10,7 @@ export default function Demo(props) {
   const theme = useContext(ContextTheme);
 
   return (
-    <section className={theme.dark}>
+    <section>
       <div>
         You count {count.value} stars
         <button {...count}>Count</button>

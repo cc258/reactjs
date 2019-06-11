@@ -8,7 +8,7 @@ console.log("---------into router----------");
 
 module.exports = router
   .get("/", Home.index)
-  .get("/(index|hook|todos|format)", Home.index)
+  .get("/(index|hook|typescript|todos|format)", Home.index)
   .get("/getdata", Api.getData)
   .get("/sn/:id", Home.sn)
   .get("/user/reg", User.reg)
