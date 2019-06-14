@@ -184,7 +184,33 @@ h1 {
 .format .msg {
   height: 60px;
 }
-
+/* page format*/
 .format .buttons {
   padding: 30px;
+}
+
+.simulator {
+  display: flex;
+  flex: 1;
+  color: #fff;
+  background: #333;
+}
+.simulator-cont {
+  display: flex;
+  flex: 1;
+}
+.simulator-card {
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+}
+.simulator-car {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(./images/simulator_ferrari.jpg) no-repeat 100% 50%;
+  background-size: auto 100%;
 }

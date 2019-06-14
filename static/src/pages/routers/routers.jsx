@@ -6,6 +6,7 @@ import Hook from "../hook/hook.jsx";
 import Typescript from "../typescript/typescript.jsx";
 import Todos from "../todo/todos.jsx";
 import Format from "../format/format.jsx";
+import Simulator from "../simulator/simulator.jsx";
 import NotFound from "../not-found/not-found.jsx";
 
 class Routers extends React.Component {
@@ -29,6 +30,9 @@ class Routers extends React.Component {
             <li>
               <Link to="/format/">Format</Link>
             </li>
+            <li>
+              <Link to="/simulator">Simulator</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -37,6 +41,7 @@ class Routers extends React.Component {
           <Route path="/typescript/" component={Typescript} />
           <Route path="/todos/" component={Todos} />
           <Route path="/format/" component={Format} />
+          <Route path="/simulator/" component={Simulator} />
           <Route component={NotFound} />
         </Switch>
       </Router>
