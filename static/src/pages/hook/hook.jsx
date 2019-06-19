@@ -10,7 +10,7 @@ const theme = {
 };
 function Hook() {
   return (
-    <div className="pages hook">
+    <div className="pages websocket">
       <ContextTheme.Provider value={theme}>
         <Demo text="Demo" />
       </ContextTheme.Provider>

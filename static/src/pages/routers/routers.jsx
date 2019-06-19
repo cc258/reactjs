@@ -7,6 +7,7 @@ import Typescript from "../typescript/typescript.jsx";
 import Todos from "../todo/todos.jsx";
 import Format from "../format/format.jsx";
 import Simulator from "../simulator/simulator.jsx";
+import Websocket from "../websocket/websocket.jsx";
 import NotFound from "../not-found/not-found.jsx";
 
 class Routers extends React.Component {
@@ -33,6 +34,9 @@ class Routers extends React.Component {
             <li>
               <Link to="/simulator">Simulator</Link>
             </li>
+            <li>
+              <Link to="/websocket">Websocket</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -42,6 +46,7 @@ class Routers extends React.Component {
           <Route path="/todos/" component={Todos} />
           <Route path="/format/" component={Format} />
           <Route path="/simulator/" component={Simulator} />
+          <Route path="/websocket/" component={Websocket} />
           <Route component={NotFound} />
         </Switch>
       </Router>
