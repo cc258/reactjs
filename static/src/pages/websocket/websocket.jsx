@@ -1,39 +1,47 @@
 import React, { useState, useEffect } from "react";
 
 export default function Websocket() {
-  const [msg, setMsg] = useState();
-  const [text, setText] = useState("");
+  const [msg, setMsg] = useState("");
+  const [txt, setTxt] = useState("");
 
-  const websocket = new WebSocket("wss://www.qvdv.com/Websocket");
-  websocket.onerror = function() {
-    console.log("websocket error");
+  const socket = new WebSocket("ws://localhost:7080");
+  console.log("【client】", socket);
+  socket.onerror = function() {
+    console.log("【client】websocket error");
   };
-  websocket.onopen = function() {
+  socket.onopen = function() {
     console.log("websocket connect success");
+    // socket.send("【client】hello websocket");
   };
-  websocket.onmessage = function(event) {
-    console.log("websocket data:", event.data);
+  socket.onmessage = function(event) {
+    console.log("【client】websocket data:", event);
     setMsg(event.data);
   };
-  //   websocket.onclose = function() {
-  //     console.log("websocket close");
-  //   };
-  //   websocket.onbeforeunload = function() {
-  //     websocket.close();
-  //   };
+  socket.onclose = function() {
+    console.log("【client】websocket close");
+  };
 
-  function handChangeText(e) {
-    setText(e.target.value);
+  socket.onbeforeunload = function() {
+    websocket.close();
+  };
+
+  function handChangeTxt(e) {
+    setTxt(e.target.value);
   }
   function handSendWebsocket() {
-    websocket.send(text);
+    if (socket.OPEN) {
+      console.log("【client】socket.OPEN: ", socket.OPEN);
+      socket.send(txt);
+    } else {
+      console.log("【client】", socket);
+    }
   }
 
   return (
     <div className="pages">
       <div>Websocket</div>
       <div>WebChat</div>
-      <input onChange={handChangeText} />
+      <input onChange={handChangeTxt} />
       <button onClick={handSendWebsocket}>send</button>
       <ul>
         <li>{msg}</li>
