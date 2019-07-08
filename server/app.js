@@ -34,14 +34,18 @@ app.use(
 
 // websocket
 const WebSocket = require("ws");
+const clients = [];
 const wss = new WebSocket.Server(socketPort);
 wss.on("connection", function connection(ws) {
+  clients.push(ws);
   ws.on("message", function incoming(message) {
     console.log(
       "\033[45;30m DONE \033[40;32m received: " + message + "/ \033[0m",
       message
     );
-    ws.send(`service, ${message}`);
+    clients.forEach(function(ws1) {
+      ws1.send(`service, ${message}`);
+    });
   });
 });
 

@@ -25,7 +25,7 @@ export default function Websocket() {
     socket.onbeforeunload = function() {
       websocket.close();
     };
-  }, []);
+  }, [msg]);
 
   function handChangeTxt(e) {
     setTxt(e.target.value);

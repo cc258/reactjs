@@ -2,6 +2,8 @@
 
 # Resources interesting
 
+[React 源码解析](https://react.jokcy.me/book/api/react.html)
+
 [React](https://zh-hans.reactjs.org/)
 
 [React v16.8: The One With Hooks](https://reactjs.org/blog/2019/02/06/react-v16.8.0.html)
