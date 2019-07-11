@@ -1,8 +1,13 @@
+const webpack = require("webpack");
 const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: ["./static/src/index.jsx"],
+  entry: [
+    "webpack/hot/dev-server",
+    // "react-hot-loader/patch",
+    "./static/src/index.jsx"
+  ],
   // 使用 source map
   // 当 webpack 打包源代码时，可能会很难追踪到错误和警告在源代码中的原始位置。
   // 例如，如果将三个源文件（a.js, b.js 和 c.js）打包到一个 bundle（bundle.js）中，
@@ -14,13 +19,19 @@ module.exports = {
   //对于本指南，我们使用 inline-source-map 选项，这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）：
   devtool: "inline-source-map",
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "./static/dist")
+    path: path.resolve(__dirname, "./static/dist"),
+    publicPath: "/",
+    filename: "bundle.js"
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },

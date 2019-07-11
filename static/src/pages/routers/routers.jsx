@@ -1,3 +1,4 @@
+import { hot } from "react-hot-loader";
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
@@ -54,4 +55,4 @@ class Routers extends React.Component {
   }
 }
 
-export default Routers;
+export default hot(module)(Routers);

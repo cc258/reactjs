@@ -57,6 +57,10 @@ h1 {
   padding: 80px;
   min-height: 700px;
 }
+/* page Home */
+.home {
+  font-size: 100px;
+}
 
 /* page hook*/
 .hook {

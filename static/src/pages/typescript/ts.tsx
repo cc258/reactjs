@@ -1,5 +1,5 @@
 import React from "react";
-import { formatMessage, injectIntl } from "react-intl";
+import { injectIntl } from "react-intl";
 
 class Typescript extends React.Component {
   render() {
@@ -22,9 +22,9 @@ class Typescript extends React.Component {
 
     // 数组
     // TypeScript像JavaScript一样可以操作数组元素。 有两种方式可以定义数组。 第一种，可以在元素类型后面接上[]，表示由此类型元素组成的一个数组：
-    let list: number[] = [1, 2, 3];
+    let listA: number[] = [1, 2, 3];
     // 第二种方式是使用数组泛型，Array<元素类型>：
-    let list: Array<number> = [1, 2, 3];
+    let listB: Array<number> = [1, 2, 3];
 
     // 元组 Tuple
     // 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。 比如，你可以定义一对值分别为string和number类型的元组。
@@ -34,20 +34,24 @@ class Typescript extends React.Component {
     // Initialize it
     x = ["hello", 10]; // OK
     // Initialize it incorrectly
-    x = [10, "hello"]; // Error
+    //x = [10, "hello"];  Error
 
     // 当访问一个已知索引的元素，会得到正确的类型：
     console.log(x[0].substr(1)); // OK
-    console.log(x[1].substr(1)); // Error, 'number' does not have 'substr'
+    //console.log(x[1].substr(1));  Error, 'number' does not have 'substr'
 
     // 当访问一个越界的元素，会使用联合类型替代：
-    x[3] = "world"; // OK, 字符串可以赋值给(string | number)类型
-    console.log(x[5].toString()); // OK, 'string' 和 'number' 都有 toString
-    x[6] = true; // Error, 布尔不是(string | number)类型
+    //x[3] = "world";  OK, 字符串可以赋值给(string | number)类型
+    //console.log(x[5].toString());  OK, 'string' 和 'number' 都有 toString
+    //x[6] = true; // Error, 布尔不是(string | number)类型
 
     // 枚举
     // enum类型是对JavaScript标准数据类型的一个补充。 像C#等其它语言一样，使用枚举类型可以为一组数值赋予友好的名字。
-    // enum Color {Red, Green, Blue}
+    enum Color {
+      Red,
+      Green,
+      Blue
+    }
     let c: Color = Color.Green;
 
     // 任意值
@@ -57,12 +61,11 @@ class Typescript extends React.Component {
     notSure = false; // okay, definitely a boolean
 
     // 在对现有代码进行改写的时候，any类型是十分有用的，它允许你在编译时可选择地包含或移除类型检查。 你可能认为Object有相似的作用，就像它在其它语言中那样。 但是Object类型的变量只是允许你给它赋任意值 - 但是却不能够在它上面调用任意的方法，即便它真的有这些方法：
-    let notSure: any = 4;
     notSure.ifItExists(); // okay, ifItExists might exist at runtime
     notSure.toFixed(); // okay, toFixed exists (but the compiler doesn't check)
 
     let prettySure: Object = 4;
-    prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.
+    //prettySure.toFixed();  Error: Property 'toFixed' doesn't exist on type 'Object'.
 
     // 当你只知道一部分数据的类型时，any类型也是有用的。 比如，你有一个数组，它包含了不同的类型的数据：
     let list: any[] = [1, true, "free"];
@@ -75,11 +78,17 @@ class Typescript extends React.Component {
       console.log("This is my warning message");
     }
 
+    function sayHi(person: string) {
+      return `Hi, ${person}`;
+    }
+
+    console.log(sayHi("董小姐"));
+
     // 声明一个void类型的变量没有什么大用，因为你只能为它赋予undefined和null：
     let unusable: void = undefined;
 
-    return <div className="pages home" />;
+    return <div />;
   }
 }
 
-export default injectIntl(Typescript);
+export default Typescript;
