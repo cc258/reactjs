@@ -1,9 +1,29 @@
 import React, { useState, useEffect } from "react";
+import PrettyHtml from "../../common/json-pretty-html.ts";
 
 export default function Websocket() {
   const [msg, setMsg] = useState("");
   const [txt, setTxt] = useState("");
   const socket = new WebSocket("ws://localhost:7080");
+  const json = {
+    id: 2,
+    name: "An ice sculpture",
+    price: 12.5,
+    tags: ["cold", "ice"],
+    dimensions: {
+      indent: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+      length: 7.0,
+      width: 52.0,
+      height: 9.5
+    },
+    warehouseLocation: {
+      latitude: -78.75,
+      longitude: 20.4
+    }
+  };
+  const html = PrettyHtml(json, json.dimensions, {
+    indent: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+  });
 
   useEffect(() => {
     console.log("【client】", socket);
@@ -48,6 +68,11 @@ export default function Websocket() {
       <ul>
         <li>{msg}</li>
       </ul>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: html
+        }}
+      />
     </div>
   );
 }

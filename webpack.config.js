@@ -1,10 +1,12 @@
 const webpack = require("webpack");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: [
-    "webpack/hot/dev-server",
+    // "webpack/hot/dev-server",
     // "react-hot-loader/patch",
     "./static/src/index.jsx"
   ],
@@ -24,20 +26,22 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
+    new HtmlWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new FriendlyErrorsWebpackPlugin()
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|packages/,
         loader: "babel-loader"
       },
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
+        exclude: /node_modules|packages/,
         loader: "awesome-typescript-loader"
       },
       {

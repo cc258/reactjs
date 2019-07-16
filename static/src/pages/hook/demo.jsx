@@ -11,6 +11,7 @@ export default function Demo() {
 
   return (
     <section>
+      <h1>Hook Demo</h1>
       <div>
         You count {count.value} stars
         <button {...count}>Count</button>

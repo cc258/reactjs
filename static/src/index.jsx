@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 // international language
 import { addLocaleData, IntlProvider } from "react-intl";
