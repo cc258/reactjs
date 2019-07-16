@@ -8,7 +8,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "build": "webpack -d --watch",
-    "start": "nodemon --inspect ./server/app.js"
+    "start": "webpack && nodemon --inspect ./server/app.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

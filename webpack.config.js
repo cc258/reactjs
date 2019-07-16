@@ -1,13 +1,13 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+
 
 module.exports = {
   mode: "development",
   entry: [
-    // "webpack/hot/dev-server",
-    // "react-hot-loader/patch",
+    "react-hot-loader/patch",
+    "webpack/hot/dev-server",
     "./static/src/index.jsx"
   ],
   // 使用 source map
@@ -25,13 +25,7 @@ module.exports = {
     publicPath: "/",
     filename: "bundle.js"
   },
-  plugins: [
-    new HtmlWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new FriendlyErrorsWebpackPlugin()
-  ],
+
   module: {
     rules: [
       {
@@ -57,5 +51,11 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({template: "./static/src/index.html"}),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
+  ],
 };

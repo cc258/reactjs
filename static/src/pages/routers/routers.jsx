@@ -1,5 +1,5 @@
 import React from "react";
-import { hot } from "react-hot-loader";
+import { hot, setConfig } from "react-hot-loader";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Home from "../home/home.jsx";
@@ -21,7 +21,7 @@ class Routers extends React.Component {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/hook/">Hook</Link>
+              <Link to="/hook/">Hook123</Link>
             </li>
             <li>
               <Link to="/typescript/">TS</Link>
@@ -54,5 +54,7 @@ class Routers extends React.Component {
     );
   }
 }
+
+setConfig({ logLevel: "debug" });
 
 export default hot(module)(Routers);

@@ -14,14 +14,14 @@ const app = new Koa();
 const port = 8090;
 const socketPort = { port: 7080 };
 // 关于静态资源地址，相对于app.js的路径，如果遇到路径不正确，打点或console查看
-const public = "../static";
+const public = "../static/dist";
 
 app.use(bodyParser());
 app.use(static(path.resolve(__dirname, public)));
 app.use(
   koaNunjucks({
     ext: "html",
-    path: path.resolve(__dirname, "../static/src"),
+    path: path.resolve(__dirname, "../static/dist"),
     nunjucksConfig: {
       trimBlocks: true
     }
@@ -46,7 +46,7 @@ wss.on("connection", function connection(ws) {
       "\033[45;30m DONE \033[40;32m received: " + message + "/ \033[0m",
       message
     );
-    clients.forEach(function(ws1) {
+    clients.forEach(function (ws1) {
       ws1.send(`service, ${message}`);
     });
   });
