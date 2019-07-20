@@ -1,8 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
-import { hot } from "react-hot-loader";
 import App from "./app.jsx";
-const HotApp = hot(module)(App);
 
 const mount = document.getElementById("app");
-render(<HotApp />, mount);
+
+render(<App />, mount);
+
+// if (module.hot) {
+//   module.hot.accept(App, function() {
+//     console.log("Accepting the updated printMe module!");
+//     render(App);
+//   });
+// }

@@ -7,7 +7,6 @@ module.exports = {
   mode: "development",
   entry: [
     "react-hot-loader/patch",
-    "webpack/hot/dev-server",
     "./static/src/index.jsx"
   ],
   // 使用 source map
@@ -22,10 +21,23 @@ module.exports = {
   devtool: "inline-source-map",
   output: {
     path: path.resolve(__dirname, "./static/dist"),
-    publicPath: "/",
+    publicPath: path.resolve(__dirname, "./static/src/"),
     filename: "bundle.js"
   },
-
+  devServer: {
+    contentBase: path.resolve(__dirname, "./static/dist"),
+    compress: true,
+    port: 8080,
+    // 重要，关于热加载的细节 https://github.com/webpack/docs/wiki/webpack-dev-server#content-base
+    hot: true,
+    inline: true,
+    historyApiFallback: true,
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
   module: {
     rules: [
       {
@@ -53,9 +65,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: "./static/src/index.html"}),
-    new webpack.NamedModulesPlugin(),
+    new HtmlWebpackPlugin({ template: path.resolve(__dirname, './static/src/index.html') }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NamedModulesPlugin()
   ],
 };

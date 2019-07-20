@@ -4,17 +4,13 @@ const static = require("koa-static");
 const bodyParser = require("koa-bodyparser");
 const koaNunjucks = require("koa-nunjucks-2");
 
-const webpack = require("webpack");
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require("webpack-hot-middleware");
-const webpackConfig = require("../webpack.config");
-const compiler = webpack(webpackConfig);
 const app = new Koa();
 
 const port = 8090;
 const socketPort = { port: 7080 };
 // 关于静态资源地址，相对于app.js的路径，如果遇到路径不正确，打点或console查看
 const public = "../static/dist";
+
 
 app.use(bodyParser());
 app.use(static(path.resolve(__dirname, public)));
@@ -35,6 +31,8 @@ app.use(
 // nunjucksConfig: Object of Nunjucks config options.
 // configureEnvironment: A function to modify the Nunjucks environment. See the Extending Nunjucks section below for usage.
 
+
+
 // websocket
 const WebSocket = require("ws");
 const clients = [];
@@ -52,14 +50,8 @@ wss.on("connection", function connection(ws) {
   });
 });
 
+
 app.use(require("./router").routes());
-app.use(
-  webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: webpackConfig.output.publicPath
-  })
-);
-app.use(webpackHotMiddleware(compiler));
 app.listen(port);
 console.log(
   "\033[45;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"

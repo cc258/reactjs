@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Provider } from "react-redux";
+import { hot } from "react-hot-loader";
 import { createStore, applyMiddleware, combineReducers } from "redux";
 
 // international language
@@ -40,5 +40,4 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
+export default hot(module)(App);
