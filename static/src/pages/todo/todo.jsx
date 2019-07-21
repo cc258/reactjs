@@ -14,7 +14,7 @@ class Todo extends React.Component {
     const { list, changeStatus, getData } = this.props;
     const { formatMessage } = this.props.intl;
     return (
-      <div>
+      <div className="todo">
         <h1 onClick={getData}>
           cccccccccccc
           {formatMessage(

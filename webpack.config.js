@@ -20,8 +20,8 @@ module.exports = {
   //对于本指南，我们使用 inline-source-map 选项，这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）：
   devtool: "inline-source-map",
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, "./static/dist"),
-    publicPath: path.resolve(__dirname, "./static/src/"),
     filename: "bundle.js"
   },
   devServer: {

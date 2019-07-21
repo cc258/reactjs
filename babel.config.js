@@ -1,6 +1,6 @@
 const presets = [
   [
-    "@babel/env",
+    '@babel/preset-env',
     {
       targets: {
         edge: "17",
@@ -9,7 +9,7 @@ const presets = [
         safari: "11.1",
         node: 'current',
       },
-      useBuiltIns: "usage"
+      useBuiltIns: "entry"
     }
   ]
 ];
