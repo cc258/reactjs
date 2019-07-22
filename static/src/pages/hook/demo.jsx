@@ -1,21 +1,25 @@
-import React, { useState, useContext, useEffect } from "react";
-import ContextTheme from "./context-theme";
+import React, { useState, useEffect, useContext } from "react";
+import ThemeContext from "./theme.jsx";
 
-export default function Demo() {
-  const count = useCountNum(0);
-  const cName = useNameValue("Chuang");
-  const eName = useNameValue("Leo");
-  const width = useResizeWidth();
+export default function Demo({ id }) {
+  const [stars, setStars] = useState(0);
 
-  const theme = useContext(ContextTheme);
+  const cName = useName();
+  const eName = useName();
+  const width = useResize();
+
+  const theme = useContext(ThemeContext);
+
+  function onStars() {
+    setStars(stars + 10);
+  }
 
   return (
-    <section>
-      <h1>Hook hahahahah</h1>
-      <div>
-        You count {count.value} stars
-        <button {...count}>Count</button>
-      </div>
+    <section className={theme}>
+      <h1 onClick={onStars}>
+        {cName.value} / {eName.value} counts {stars} stars
+      </h1>
+      <h4>window width: {width}px</h4>
       <div>
         <label>
           Chinese name
@@ -28,52 +32,33 @@ export default function Demo() {
           <input {...eName} />
         </label>
       </div>
-      <h1>{theme.guangzhou}</h1>
-      <p>{width}</p>
-      <small>
-        {count.value} / {cName.value} / {eName.value} / {theme.guangzhou}/{" "}
-        {theme.night}
-      </small>
     </section>
   );
 }
-
-function useCountNum(v) {
-  const [count, setCount] = useState(v);
-  const handCount = () => {
-    setCount(count + 4);
-    setCount(count + 1);
-  };
-
-  return {
-    value: count,
-    onClick: handCount
-  };
+// cumston hooks
+function useName() {
+  const [name, setName] = useState();
+  function onName(e) {
+    setName(e.target.value);
+  }
+  return { value: name, onChange: onName };
 }
 
-function useNameValue(v) {
-  const [value, setValue] = useState(v);
-  const handChange = e => {
-    setValue(e.target.value);
-  };
-  return {
-    value,
-    onChange: handChange
-  };
-}
+// cumston hooks
+function useResize() {
+  const [width, setWidth] = useState(0);
 
-// Custom hook
-function useResizeWidth() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const handResize = () => {
-    setWidth(window.innerWidth);
-  };
+  function onResize() {
+    const winWidth = window.innerWidth;
+    setWidth(winWidth);
+  }
+
   useEffect(() => {
-    window.addEventListener("resize", handResize);
+    onResize();
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("resize", handResize);
+      window.removeEventListener("resize", onResize);
     };
-  });
-
+  }, []);
   return width;
 }

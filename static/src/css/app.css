@@ -71,36 +71,44 @@ h1 {
   color: #000;
 }
 
-.dark {
-  background: #52294c url(./images/dark.png) no-repeat;
-  background-position: 0 -167px;
-  background-size: 100% auto;
+.moon {
+  color: #fff;
+  background: #2d3468 url(./images/dark.png) no-repeat;
+  background-size: 100%;
+  min-height: 400px;
 }
 
-.blue {
-  background: #666 url(./images/blue.png) no-repeat;
-  background-size: cover;
+.hook h1 {
+  color: #fc0;
 }
 
 .hook section {
-  padding: 150px;
+  padding: 150px 50px 50px;
 }
 
 .hook div {
-  margin: 25px 0;
-  font-size: 24px;
-  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
 }
 
-.hook button,
-.hook input {
+.hook label {
   display: block;
-  margin: 0px auto 20px;
-  font-size: 20px;
+  margin: 0 auto;
+  padding: 5px 0;
+  width: 450px;
+}
+
+.hook label span {
+  display: inline-block;
+  width: 210px;
 }
 
 .hook input {
-  width: 160px;
+  margin: 0 10px;
+  padding: 5px;
+  width: 150px;
+  height: 20px;
+  border: 0;
+  font-size: 20px;
 }
 
 /* page todos */

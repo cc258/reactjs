@@ -1,19 +1,13 @@
 import React from "react";
-import ContextTheme from "./context-theme";
+import Theme from "./theme.jsx";
 import Demo from "./demo.jsx";
 
-const theme = {
-  dark: "dark",
-  blue: "blue",
-  london: "London",
-  guangzhou: "Guangzhou"
-};
 function Hook() {
   return (
-    <div className="pages websocket">
-      <ContextTheme.Provider value={theme}>
+    <div className="pages hook">
+      <Theme.Provider value="moon">
         <Demo text="Demo" />
-      </ContextTheme.Provider>
+      </Theme.Provider>
     </div>
   );
 }

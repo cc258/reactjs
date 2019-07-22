@@ -6,10 +6,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-/** This plugin uses uglify-js to minify your JavaScript.
-  @see https://github.com/webpack-contrib/uglifyjs-webpack-plugin
-*/
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+/** @see https://github.com/webpack-contrib/terser-webpack-plugin */
+
 const webpack = require("webpack");
 const path = require("path");
 
@@ -26,6 +24,7 @@ module.exports = {
   // source map 有很多不同的选项可用，请务必仔细阅读它们，以便可以根据需要进行配置。
   //对于本指南，我们使用 inline-source-map 选项，这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）：
   // devtool: "cheap-module-eval-source-map",
+  devtool: false,
   output: {
     publicPath: "/",
     path: path.resolve(__dirname, "./static/dist"),
@@ -98,30 +97,13 @@ module.exports = {
     },
     minimizer: [
       new OptimizeCssAssetsPlugin({
-        assetNameRegExp: /\.optimize\.css$/g,
+        assetNameRegExp: /\.css$/g,
         cssProcessor: require("cssnano"),
         cssProcessorOptions: {
           safe: true,
           discardComments: { removeAll: true }
         },
         canPrint: true
-      }),
-      new UglifyJsPlugin({
-        exclude: /\.min\.js$/,
-        cache: true,
-        parallel: true,
-        sourceMap: false,
-        extractComments: false,
-        uglifyOptions: {
-          compress: {
-            unused: true,
-            warnings: false,
-            drop_debugger: true
-          },
-          output: {
-            comments: false
-          }
-        }
       })
     ]
   },
