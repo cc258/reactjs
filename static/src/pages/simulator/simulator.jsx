@@ -2,23 +2,22 @@ import React, { useState, useEffect, useLayoutEffect } from "react";
 import SimulatorMap from "./map.jsx";
 
 export default function Simulator() {
-  const [count, setCount] = useState();
+  const [count, setCount] = useState(0);
   const [msg, setMsg] = useState([123]);
   const [actionClass, setActionClass] = useState("");
 
   useEffect(() => {
-    start();
+    const start = setInterval(() => {
+      setCount(Math.random());
+    }, 1000);
+    return () => {
+      clearInterval(start);
+    };
   }, []);
 
   useLayoutEffect(() => {
     creatMsg();
   }, [count]);
-
-  function start() {
-    setInterval(() => {
-      setCount(Math.random());
-    }, 1000);
-  }
 
   function creatMsg() {
     setActionClass("action");
