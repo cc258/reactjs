@@ -1,5 +1,7 @@
 @import "./leaflet.css";
-
+html {
+  font-size: 16px;
+}
 body,
 ul,
 li,
@@ -245,7 +247,7 @@ h1 {
 
 @keyframes logAnimate {
   from {
-    opacity: .3;
+    opacity: 0.3;
     transform: translateY(-36px);
   }
 

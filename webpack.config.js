@@ -1,8 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 /** @see https://www.npmjs.com/package/clean-webpack-plugin */
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 /** [Optimize CSS Assets Webpack Plugin]
   @see https://github.com/NMFR/optimize-css-assets-webpack-plugin
@@ -11,7 +12,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 /** @see https://github.com/webpack-contrib/terser-webpack-plugin */
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const webpack = require("webpack");
 const path = require("path");
@@ -68,21 +69,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }]
+        use: ["style-loader", "css-loader", "postcss-loader"]
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
           {
             loader: "url-loader",
-            options: { limit: 0 },
-          },
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[path][name].[ext]',
-              emitFile: true
-            },
+            options: { limit: 100 }
           }
         ]
       }
@@ -123,7 +117,7 @@ module.exports = {
   },
   plugins: [
     // new CleanWebpackPlugin(),
-    new BundleAnalyzerPlugin({ analyzerPort: 8081 }),
+    new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./static/src/index.html")
     }),
