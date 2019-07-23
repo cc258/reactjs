@@ -1,17 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
-
-/** @see https://www.npmjs.com/package/clean-webpack-plugin */
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-
-/** [Optimize CSS Assets Webpack Plugin]
-  @see https://github.com/NMFR/optimize-css-assets-webpack-plugin
-*/
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 
-/** @see https://github.com/webpack-contrib/terser-webpack-plugin */
 const TerserPlugin = require("terser-webpack-plugin");
 
 const webpack = require("webpack");
@@ -29,8 +22,7 @@ module.exports = {
   // 将编译后的代码映射回原始源代码。如果一个错误来自于 b.js，source map 就会明确的告诉你。
   // source map 有很多不同的选项可用，请务必仔细阅读它们，以便可以根据需要进行配置。
   //对于本指南，我们使用 inline-source-map 选项，这有助于解释说明我们的目的（仅解释说明，不要用于生产环境）：
-  // devtool: "cheap-module-eval-source-map",
-  devtool: false,
+  devtool: "cheap-module-eval-source-map",
   output: {
     publicPath: "/static/dist/",
     path: path.resolve(__dirname, "./static/dist"),
@@ -50,6 +42,7 @@ module.exports = {
     historyApiFallback: true
   },
   resolve: {
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       // react hooks hot loader config
       "react-dom": "@hot-loader/react-dom"
@@ -83,8 +76,9 @@ module.exports = {
     ]
   },
   optimization: {
+
     splitChunks: {
-      chunks: "async",
+      chunks: "all",
       minSize: 30000,
       maxSize: 0,
       minChunks: 1,
@@ -117,9 +111,16 @@ module.exports = {
   },
   plugins: [
     // new CleanWebpackPlugin(),
+    new webpack.DllReferencePlugin({
+      manifest: path.resolve(__dirname, './static/dist', 'vendors-manifest.json')
+    }),
+
     new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "./static/src/index.html")
+    }),
+    new AddAssetHtmlWebpackPlugin({
+      filepath: path.resolve(__dirname, './static/dist/vendors.dll.js')
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
