@@ -13,13 +13,10 @@ const devConfig = {
     // webpack-hot-middleware/client?noInfo=true&reload=true
     path.resolve(__dirname, "../static/src/index.jsx")
   ],
-  optimization: {
-    // 开发环境使用
-    usedExports: true
-  },
   devServer: {
     contentBase: path.resolve(__dirname, "../static/dist"),
     compress: true,
+    host: "localhost",
     port: 8080,
     // quiet: true,
     // 重要，关于热加载的细节 https://github.com/webpack/docs/wiki/webpack-dev-server#content-base
@@ -33,12 +30,18 @@ const devConfig = {
   plugins: [
     // 插件
     new webpack.NamedModulesPlugin(), //用于启动HMR时可以显示模块的相对路径
-    new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false })
+    new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        VUEP_BASE_URL: '/'
+      }
+    })
   ],
   output: {
+    path: path.resolve(__dirname, "../static/dist"),
     filename: "[name].js",
     chunkFilename: "[name].js"
   }
 };
 
-module.exports = merge.smart(commonConfig, devConfig);
+module.exports = merge(commonConfig, devConfig);

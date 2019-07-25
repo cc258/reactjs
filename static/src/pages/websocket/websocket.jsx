@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import PrettyHtml from "../../common/json-pretty-html.ts";
 
 export default function Websocket() {
   const [msg, setMsg] = useState("");
@@ -21,9 +20,7 @@ export default function Websocket() {
       longitude: 20.4
     }
   };
-  const html = PrettyHtml(json, json.dimensions, {
-    indent: "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-  });
+  const html = JSON.stringify(json, null, 4);
 
   useEffect(() => {
     console.log("【client】", socket);

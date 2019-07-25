@@ -43,6 +43,10 @@ const webpackModule = {
 
 const plugins = [
   /**
+   * 打包后先清除dist文件，先于HtmlWebpackPlugin运行
+   */
+  // new CleanWebpackPlugin(),
+  /**
    * webpack打包进度条
    * Elegant ProgressBar and Profiler for Webpack
    * @see https://www.npmjs.com/package/webpackbar
@@ -63,40 +67,46 @@ const plugins = [
   //别加这一句，会报错： HMR模块热更新出现的错误
   //Uncaught RangeError: Maximum call stack size exceeded
   new webpack.HotModuleReplacementPlugin()
-  /**
-   * 打包后先清除dist文件，先于HtmlWebpackPlugin运行
-   */
-  //   new CleanWebpackPlugin()
 
   // new OpenBrowserPlugin({ url: 'http://localhost:8081' }), // 自动打开浏览器
 ];
 
-// const files = fs.readdirSync(path.resolve(__dirname, "../static/dll"));
-// files.forEach(file => {
-//   if (/.*\.dll.js/.test(file)) {
-//     plugins.push(
-//       new AddAssetHtmlWebpackPlugin({
-//         // 将dll.js文件自动引入html
-//         filepath: path.resolve(__dirname, "../static/dll", file)
-//       })
-//     );
-//   }
-//   if (/.*\.manifest.json/.test(file)) {
-//     plugins.push(
-//       new webpack.DllReferencePlugin({
-//         // 当打包第三方库时，会去manifest.json文件中寻找映射关系，如果找到了那么就直接从全局变量(即打包文件)中拿过来用就行，不用再进行第三方库的分析，以此优化打包速度
-//         manifest: path.resolve(__dirname, "../static/dll", file)
-//       })
-//     );
-//   }
-// });
+const files = fs.readdirSync(path.resolve(__dirname, "../static/dll"));
+files.forEach(file => {
+  if (/.*\.dll.js/.test(file)) {
+    plugins.push(
+      new AddAssetHtmlWebpackPlugin({
+        // 将dll.js文件自动引入html
+        filepath: path.resolve(__dirname, "../static/dll", file)
+      })
+    );
+  }
+  if (/.*\.manifest.json/.test(file)) {
+    plugins.push(
+      new webpack.DllReferencePlugin({
+        // 当打包第三方库时，会去manifest.json文件中寻找映射关系，如果找到了那么就直接从全局变量(即打包文件)中拿过来用就行，不用再进行第三方库的分析，以此优化打包速度
+        manifest: path.resolve(__dirname, "../static/dll", file)
+      })
+    );
+  }
+});
+
+const optimization = {
+  usedExports: true,
+  splitChunks: {
+    chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
+    cacheGroups: {
+      // 公共代码打包分组配置
+      vendors: {
+        test: /[\\/]node_modules[\\/]/,
+        name: 'vendors'
+      }
+    }
+  },
+};
 
 const resolve = {
   extensions: [".js", ".jsx", ".ts", "tsx", "json"],
-  alias: {
-    // react hooks hot loader config
-    "react-dom": "@hot-loader/react-dom"
-  }
 };
 
 const performance = {
@@ -104,11 +114,12 @@ const performance = {
 };
 
 const commonConfig = {
-  output,
-  module: webpackModule,
+  // optimization,
   plugins,
+  module: webpackModule,
   resolve,
-  performance
+  performance,
+  output,
 };
 
 module.exports = commonConfig;
