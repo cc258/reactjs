@@ -1,0 +1,114 @@
+const webpack = require("webpack");
+const path = require("path");
+const fs = require("fs");
+
+const WebpackBar = require("webpackbar");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
+const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+
+const output = {
+  publicPath: "/",
+  path: path.resolve(__dirname, "../static/dist") // 打包后文件夹存放路径。
+};
+
+const webpackModule = {
+  rules: [
+    {
+      test: /\.jsx?$/,
+      exclude: /node_modules|packages/,
+      loader: "babel-loader"
+    },
+    {
+      test: /\.tsx?$/,
+      exclude: /node_modules|packages/,
+      loader: "awesome-typescript-loader"
+    },
+    {
+      test: /\.css$/,
+      use: ["style-loader", "css-loader", "postcss-loader"]
+    },
+    {
+      test: /\.(png|jpe?g|gif|svg)$/i,
+      use: [
+        {
+          loader: "url-loader",
+          options: { limit: 100 }
+        }
+      ]
+    }
+  ]
+};
+
+const plugins = [
+  /**
+   * webpack打包进度条
+   * Elegant ProgressBar and Profiler for Webpack
+   * @see https://www.npmjs.com/package/webpackbar
+   */
+  new WebpackBar(),
+  /**
+   * 能够更好在终端看到webapck运行的警告和错误
+   * Friendly-errors-webpack-plugin recognizes certain classes of webpack errors and cleans, aggregates and prioritizes them to provide a better Developer Experience.
+   * @see https://www.npmjs.com/package/friendly-errors-webpack-plugin
+   */
+  new FriendlyErrorsWebpackPlugin(),
+
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, "../static/src/index.html")
+  }),
+
+  //开启模块热更新，热加载和模块热更新不同，热加载是整个页面刷新
+  //别加这一句，会报错： HMR模块热更新出现的错误
+  //Uncaught RangeError: Maximum call stack size exceeded
+  new webpack.HotModuleReplacementPlugin()
+  /**
+   * 打包后先清除dist文件，先于HtmlWebpackPlugin运行
+   */
+  //   new CleanWebpackPlugin()
+
+  // new OpenBrowserPlugin({ url: 'http://localhost:8081' }), // 自动打开浏览器
+];
+
+// const files = fs.readdirSync(path.resolve(__dirname, "../static/dll"));
+// files.forEach(file => {
+//   if (/.*\.dll.js/.test(file)) {
+//     plugins.push(
+//       new AddAssetHtmlWebpackPlugin({
+//         // 将dll.js文件自动引入html
+//         filepath: path.resolve(__dirname, "../static/dll", file)
+//       })
+//     );
+//   }
+//   if (/.*\.manifest.json/.test(file)) {
+//     plugins.push(
+//       new webpack.DllReferencePlugin({
+//         // 当打包第三方库时，会去manifest.json文件中寻找映射关系，如果找到了那么就直接从全局变量(即打包文件)中拿过来用就行，不用再进行第三方库的分析，以此优化打包速度
+//         manifest: path.resolve(__dirname, "../static/dll", file)
+//       })
+//     );
+//   }
+// });
+
+const resolve = {
+  extensions: [".js", ".jsx", ".ts", "tsx", "json"],
+  alias: {
+    // react hooks hot loader config
+    "react-dom": "@hot-loader/react-dom"
+  }
+};
+
+const performance = {
+  hints: false
+};
+
+const commonConfig = {
+  output,
+  module: webpackModule,
+  plugins,
+  resolve,
+  performance
+};
+
+module.exports = commonConfig;
