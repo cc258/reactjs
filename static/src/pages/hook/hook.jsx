@@ -6,7 +6,7 @@ function Hook() {
   return (
     <div className="pages hook">
       <Theme.Provider value="moon">
-        <Demo text="Demo" />
+        <Demo />
       </Theme.Provider>
     </div>
   );
