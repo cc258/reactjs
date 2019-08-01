@@ -14,7 +14,7 @@ import en_US from "../lang/en_US";
 import thunk from "redux-thunk";
 import todos from "./pages/todo/todos.reducer";
 
-import Routers from "./pages/routers/routers.jsx";
+import Routers from "./pages/routers/routers.tsx";
 
 import "./css/app.css";
 

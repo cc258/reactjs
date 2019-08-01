@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
 import axios from "axios";
-import ThemeContext from "./theme.jsx";
+import ThemeContext from "./theme";
 import { actions } from "../todo/todos.reducer";
 
 const reducer = (state, action) => {
@@ -18,7 +18,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Demo() {
+export default function Demo(props) {
   const [state, dispatch] = useReducer(reducer);
 
   const [stars, setStars] = useState(0);
@@ -45,6 +45,8 @@ export default function Demo() {
         dispatch({ type: "getRightPoint", data });
       });
   }
+
+  console.log(props);
 
   return (
     <section className={theme}>

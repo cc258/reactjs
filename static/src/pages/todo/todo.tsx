@@ -1,5 +1,5 @@
 import React from "react";
-import TodoList from "./todolist.jsx";
+import TodoList from "./todolist";
 import { FormattedMessage, injectIntl } from "react-intl";
 
 class Todo extends React.Component {

@@ -2,14 +2,14 @@ import React from "react";
 import { hot, setConfig } from "react-hot-loader";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import Home from "../home/home.jsx";
-import Hook from "../hook/hook.jsx";
-import Typescript from "../typescript/typescript.jsx";
-import Todos from "../todo/todos.jsx";
-import Format from "../format/format.jsx";
-import Simulator from "../simulator/simulator.jsx";
-import Websocket from "../websocket/websocket.jsx";
-import NotFound from "../not-found/not-found.jsx";
+// import Home from "../home/home.jsx";
+// import Hook from "../hook/hook.jsx";
+import Typescript from "../typescript/typescript";
+// import Todos from "../todo/todos.jsx";
+// import Format from "../format/format.jsx";
+// import Simulator from "../simulator/simulator.jsx";
+// import Websocket from "../websocket/websocket.jsx";
+// import NotFound from "../not-found/not-found.jsx";
 
 class Routers extends React.Component {
   render() {
@@ -41,13 +41,13 @@ class Routers extends React.Component {
           </ul>
         </nav>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/hook/" component={Hook} />
+          {/* <Route exact path="/" component={Home} />
+          <Route path="/hook/" component={Hook} /> */}
           <Route path="/typescript/" component={Typescript} />
-          <Route path="/todos/" component={Todos} />
+          {/* <Route path="/todos/" component={Todos} />
           <Route path="/format/" component={Format} />
           <Route path="/simulator/" component={Simulator} />
-          <Route path="/websocket/" component={Websocket} />
+          <Route path="/websocket/" component={Websocket} /> */}
           <Route component={NotFound} />
         </Switch>
       </Router>

@@ -1,6 +1,6 @@
 import React from "react";
-import Theme from "./theme.jsx";
-import Demo from "./demo.jsx";
+import Theme from "./theme";
+import Demo from "./demo";
 
 function Hook() {
   return (

@@ -11,7 +11,7 @@ const devConfig = {
     "react-hot-loader/patch",
     // 实现刷新浏览器webpack-hot-middleware/client?noInfo=true&reload=true 是必填的
     // webpack-hot-middleware/client?noInfo=true&reload=true
-    path.resolve(__dirname, "../static/src/index.jsx")
+    path.resolve(__dirname, "../static/src/index.tsx")
   ],
   devServer: {
     contentBase: path.resolve(__dirname, "../static/dist"),

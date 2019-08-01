@@ -1,9 +1,20 @@
 {
   "compilerOptions": {
+    // For every flag option that can be passed to the CLI
+    "esModuleInterop": true,
+
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true
-  }
+    "sourceMap": true,
+  },
+  "include": [
+    "static/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+  ]
 }

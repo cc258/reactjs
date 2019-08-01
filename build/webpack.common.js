@@ -23,7 +23,7 @@ const webpackModule = {
     {
       test: /\.tsx?$/,
       exclude: /node_modules|packages/,
-      loader: "awesome-typescript-loader"
+      loader: ["babel-loader", "awesome-typescript-loader"]
     },
     {
       test: /\.css$/,
@@ -106,7 +106,7 @@ const optimization = {
 };
 
 const resolve = {
-  extensions: [".js", ".jsx", ".ts", "tsx", "json"],
+  extensions: ["tsx", ".ts", ".js", ".jsx", "json"],
 };
 
 const performance = {
