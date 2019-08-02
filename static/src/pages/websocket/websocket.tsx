@@ -39,12 +39,12 @@ export default function Websocket() {
       console.log("【client】websocket close");
     };
 
-    socket.onbeforeunload = function() {
-      websocket.close();
-    };
+    // socket.onbeforeunload = function() {
+    //   websocket.close();
+    // };
   }, [msg]);
 
-  function handChangeTxt(e) {
+  function handChangeTxt(e: any) {
     setTxt(e.target.value);
   }
   function handSendWebsocket() {

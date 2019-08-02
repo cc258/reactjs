@@ -32,8 +32,8 @@ const devConfig = {
     new webpack.NamedModulesPlugin(), //用于启动HMR时可以显示模块的相对路径
     new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
     new webpack.DefinePlugin({
-      'process.env': {
-        VUEP_BASE_URL: '/'
+      "process.env": {
+        VUEP_BASE_URL: "/"
       }
     })
   ],

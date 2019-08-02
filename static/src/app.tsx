@@ -2,7 +2,6 @@ import React from "react";
 import { Provider } from "react-redux";
 import { hot } from "react-hot-loader";
 import { createStore, applyMiddleware, combineReducers } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 // international language
 import { addLocaleData, IntlProvider } from "react-intl";
@@ -14,13 +13,13 @@ import en_US from "../lang/en_US";
 import thunk from "redux-thunk";
 import todos from "./pages/todo/todos.reducer";
 
-import Routers from "./pages/routers/routers.tsx";
+import Routers from "./pages/routers/routers";
 
 import "./css/app.css";
 
 addLocaleData([...en, ...zh]);
 
-const INITIAL = {};
+const INITIAL: any = {};
 
 const store = createStore(
   combineReducers({
@@ -34,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <IntlProvider locale={"en"} key={"en"} locale={"en"} messages={en_US}>
+        <IntlProvider locale={"en"} key={"en"} messages={en_US}>
           <Routers />
         </IntlProvider>
       </Provider>

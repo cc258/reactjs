@@ -10,7 +10,7 @@ const TODO_GETDATA = "TODO_GETDATA";
 // Reducer
 
 const initState = {};
-export default (state = initState, action) => {
+export default (state = initState, action: any) => {
   const data = action.data;
   switch (action.type) {
     case TODO_ADD:
