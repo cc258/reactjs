@@ -1,7 +1,7 @@
 export interface TodosState {}
 
 export interface TodosProps {
-  list: Array<TodoItem>;
+  list?: Array<TodoItem>;
   addTodo: Function;
   changeStatus: Function;
   getData: Function;

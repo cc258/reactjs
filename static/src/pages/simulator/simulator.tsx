@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import SimulatorMap from "./map.jsx";
+import SimulatorMap from "./map";
 
 export default function Simulator() {
   const [count, setCount] = useState(0);
