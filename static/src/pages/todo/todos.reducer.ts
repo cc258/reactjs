@@ -1,6 +1,8 @@
 // Ducks
 
 import axios from "axios";
+import { Dispatch } from "redux";
+import { TodoProps, TodoState, TodoItem } from "./todos.d";
 
 // Actions
 const TODO_ADD = "TODO_ADD";
@@ -26,7 +28,7 @@ export default (state = initState, action: any) => {
 
 // Action Creators
 export const actions = {
-  addTodo: (ls, d) => {
+  addTodo: (ls: Array<TodoItem>, d: string) => {
     // 这个坑，我踩哭了，数组部分更新不会render
     const list = ls.slice();
     list.unshift({ st: 0, txt: d });
@@ -34,14 +36,14 @@ export const actions = {
     return { type: TODO_ADD, data: payData };
   },
 
-  changeStatus: (ls, item, idx) => {
+  changeStatus: (ls: Array<TodoItem>, item: TodoItem, idx: number) => {
     const list = ls.slice();
     list[idx] = item;
     const payData = { list };
     return { type: TODO_CHANGE, data: payData };
   },
 
-  getData: () => dispatch => {
+  getData: (e: MouseEvent) => (dispatch: Dispatch) => {
     axios
       .get("/getdata", {
         params: {

@@ -1,13 +1,13 @@
 import React from "react";
-import { TodosProps, TodosState, TodoItem } from "./todos.d";
+import { TodoListProps, TodoItem } from "./todos.d";
 
-class TodoList extends React.Component<TodosProps, TodosState> {
+class TodoList extends React.Component<TodoListProps, any> {
   render = () => {
     const { list = [] } = this.props;
     // console.log(`list=================list===========`, list);
     return (
       <ul>
-        {list.map((item, idx) => {
+        {list.map((item: TodoItem, idx: number) => {
           return (
             <li className={`do-${item.st}`} key={idx}>
               <span onClick={() => this.handerChangeStatus(item, idx)}>
@@ -21,7 +21,7 @@ class TodoList extends React.Component<TodosProps, TodosState> {
     );
   };
 
-  handerChangeStatus = (it, idx) => {
+  handerChangeStatus = (it: TodoItem, idx: number) => {
     const { list, changeStatus } = this.props;
     const item = {
       st: it.st ? 0 : 1,

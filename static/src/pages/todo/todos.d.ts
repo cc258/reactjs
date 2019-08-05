@@ -8,6 +8,10 @@ export interface TodosProps {
   changeStatus: Function;
   getData: Function;
 }
+export interface TodoListProps {
+  list: Array<TodoItem>;
+  changeStatus: Function;
+}
 
 export interface TodoItem {
   st: number;
