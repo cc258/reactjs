@@ -1,8 +1,9 @@
 import React from "react";
+import { TodosProps, TodosState, TodoItem } from "./todos.d";
 
-class TodoList extends React.Component {
+class TodoList extends React.Component<TodosProps, TodosState> {
   render = () => {
-    const { list } = this.props;
+    const { list = [] } = this.props;
     // console.log(`list=================list===========`, list);
     return (
       <ul>

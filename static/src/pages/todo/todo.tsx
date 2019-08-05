@@ -1,8 +1,9 @@
 import React from "react";
 import TodoList from "./todolist";
-import { FormattedMessage, injectIntl } from "react-intl";
+import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
+import { TodoProps, TodoState, TodoItem } from "./todos.d";
 
-class Todo extends React.Component {
+class Todo extends React.Component<TodoProps & InjectedIntlProps, TodoState> {
   // 初始化state (ES7) 或者在构造函数(constructor)中初始化state (ES6)
   state = {
     newTodo: "",
@@ -12,11 +13,10 @@ class Todo extends React.Component {
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    const { formatMessage } = this.props.intl;
+    const { formatMessage } = intl;
     return (
       <div className="todo">
         <h1 onClick={getData}>
-          cccccccccccc
           {formatMessage(
             { id: "examples_todo_index_title_message" },
             { name: "Leo" }
@@ -58,4 +58,4 @@ class Todo extends React.Component {
   };
 }
 
-export default injectIntl(Todo);
+export default injectIntl<TodoProps>(Todo);

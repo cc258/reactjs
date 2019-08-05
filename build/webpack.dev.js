@@ -22,6 +22,10 @@ const devConfig = {
     // 重要，关于热加载的细节 https://github.com/webpack/docs/wiki/webpack-dev-server#content-base
     hot: true,
     inline: true,
+    open: true,
+
+    // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。
+    noInfo: true,
     // watchOptions: {
     //   ignored: /node_modules/
     // },

@@ -1,3 +1,5 @@
+import { InjectedIntlProps } from "react-intl";
+
 export interface TodosState {}
 
 export interface TodosProps {
@@ -9,5 +11,17 @@ export interface TodosProps {
 
 export interface TodoItem {
   st: number;
-  text: string;
+  txt: string;
+}
+
+interface TodoProps extends InjectedIntlProps {
+  list?: Array<TodoItem>;
+  addTodo?: Function;
+  changeStatus: Function;
+  getData: Function;
+}
+
+export interface TodoState {
+  newTodo?: string;
+  name?: string;
 }
