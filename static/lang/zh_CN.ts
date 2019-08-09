@@ -1,8 +1,10 @@
-import {defineMessages} from 'react-intl';
+import { defineMessages } from "react-intl";
 
 const zh_CN = defineMessages({
-    examples_todo_index_title: '你好! {name}',
-    examples_todo_index_title_message: '你好! {name} 使用 message',
+  examples_todo_index_title: {
+    id: "examples.todo.index.title",
+    defaultMessage: "你好 {name}!"
+  }
 });
 
 export default zh_CN;

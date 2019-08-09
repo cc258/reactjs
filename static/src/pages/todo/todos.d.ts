@@ -22,7 +22,7 @@ interface TodoProps extends InjectedIntlProps {
   list?: Array<TodoItem>;
   addTodo?: Function;
   changeStatus: Function;
-  getData: Function;
+  getData: () => void;
 }
 
 export interface TodoState {

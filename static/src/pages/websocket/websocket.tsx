@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export default function Websocket() {
   const [msg, setMsg] = useState("");
   const [txt, setTxt] = useState("");
-  const socket = new WebSocket("ws://localhost:7080");
+  const socket = new WebSocket("wss://localhost:7080");
   const json = {
     id: 2,
     name: "An ice sculpture",
@@ -57,7 +57,7 @@ export default function Websocket() {
   }
 
   return (
-    <div className="pages">
+    <div className="pages websocket">
       <div>Websocket</div>
       <div>WebChat</div>
       <input onChange={handChangeTxt} />
@@ -65,11 +65,9 @@ export default function Websocket() {
       <ul>
         <li>{msg}</li>
       </ul>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: html
-        }}
-      />
+      <div>
+        <pre>{html}</pre>
+      </div>
     </div>
   );
 }

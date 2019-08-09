@@ -1,6 +1,8 @@
 @import "./leaflet.css";
 html {
   font-size: 16px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, Helvetica Neue,
+    PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 body,
 ul,
@@ -287,4 +289,8 @@ h1 {
   height: 60px;
   background: #f00 url(./images/car.jpg) no-repeat;
   background-size: 100% 100%;
+}
+
+.websocket {
+  font-size: 18px;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import TodoList from "./todolist";
 import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import { TodoProps, TodoState, TodoItem } from "./todos.d";
@@ -13,14 +13,11 @@ class Todo extends React.Component<TodoProps & InjectedIntlProps, TodoState> {
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    const { formatMessage } = this.props.intl;
+    const { formatMessage, messages: any } = this.props.intl;
     return (
       <div className="todo">
         <h1 onClick={getData}>
-          {formatMessage(
-            { id: "examples_todo_index_title_message" },
-            { name: "Leo" }
-          )}
+          {formatMessage(messages.examples_todo_index_title)}
         </h1>
         <div className="new">
           <input
@@ -36,7 +33,7 @@ class Todo extends React.Component<TodoProps & InjectedIntlProps, TodoState> {
     );
   };
 
-  setNewTodo = e => {
+  setNewTodo = (e: ChangeEvent<HTMLInputElement>) => {
     // 替换前后空格
     const d = e.target.value.replace(/(^\s*)|(\s*$)/g, "");
 

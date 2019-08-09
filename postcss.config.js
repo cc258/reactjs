@@ -20,7 +20,7 @@ module.exports = {
     cssnano: {
       "cssnano-preset-advanced": {
         zindex: false,
-        autoprefixer: false
+        autoprefixer: true
       }
     }
   }
