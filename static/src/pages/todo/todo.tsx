@@ -13,7 +13,7 @@ class Todo extends React.Component<TodoProps & InjectedIntlProps, TodoState> {
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    const { formatMessage, messages: any } = this.props.intl;
+    const { formatMessage, messages } = this.props.intl;
     return (
       <div className="todo">
         <h1 onClick={getData}>
