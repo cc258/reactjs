@@ -13,6 +13,7 @@ module.exports = class UserController {
 
   static async validate(ctx) {
     const { name, password } = ctx.request.body;
+    console.log(name, password);
     ctx.body = `hi, name: ${name} | password: ${password}`;
   }
 };

@@ -23,7 +23,7 @@ export default function Simulator() {
     setActionClass("action");
     setTimeout(() => {
       setActionClass("");
-    }, 400);
+    }, 200);
     console.log("renderMsg f", msg[0], actionClass);
     const msgText = [msg[0] + 1];
     setMsg(msgText.concat(msg));

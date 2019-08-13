@@ -7,7 +7,7 @@ class TodoList extends React.Component<TodoListProps, any> {
     // console.log(`list=================list===========`, list);
     return (
       <ul>
-        {list.map((item: TodoItem, idx: number) => {
+        {list.map((item, idx) => {
           return (
             <li className={`do-${item.st}`} key={idx}>
               <span onClick={() => this.handerChangeStatus(item, idx)}>

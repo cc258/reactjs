@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import { InjectedIntlProps } from "react-intl";
 
 export interface TodosState {}
@@ -5,12 +6,12 @@ export interface TodosState {}
 export interface TodosProps {
   list?: Array<TodoItem>;
   addTodo: Function;
-  changeStatus: Function;
-  getData: Function;
+  changeStatus: (list: Array<TodoItem>, item: TodoItem, idx: number) => void;
+  getData: () => void;
 }
 export interface TodoListProps {
   list: Array<TodoItem>;
-  changeStatus: Function;
+  changeStatus: (list: Array<TodoItem>, item: TodoItem, idx: number) => void;
 }
 
 export interface TodoItem {
@@ -21,7 +22,7 @@ export interface TodoItem {
 interface TodoProps extends InjectedIntlProps {
   list?: Array<TodoItem>;
   addTodo?: Function;
-  changeStatus: Function;
+  changeStatus: (list: Array<TodoItem>, item: TodoItem, idx: number) => void;
   getData: () => void;
 }
 
