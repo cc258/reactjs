@@ -1,7 +1,8 @@
-import React, { ChangeEvent } from "react";
-import TodoList from "./todolist";
+import React, { ChangeEvent, lazy } from "react";
 import { injectIntl } from "react-intl";
+
 import { TodoProps, TodoState } from "./todos.d";
+const TodoList = lazy(() => import("./todolist"));
 
 class Todo extends React.Component<TodoProps, TodoState> {
   // 初始化state (ES7) 或者在构造函数(constructor)中初始化state (ES6)

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Provider } from "react-redux";
 import { hot } from "react-hot-loader";
 import { createStore, applyMiddleware, combineReducers } from "redux";
@@ -34,7 +34,9 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <IntlProvider locale={"en"} key={"en"} messages={en_US}>
-          <Routers />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routers />
+          </Suspense>
         </IntlProvider>
       </Provider>
     );

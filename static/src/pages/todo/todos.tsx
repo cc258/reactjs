@@ -1,9 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { connect } from "react-redux";
 
 import { actions } from "./todos.reducer";
 import { TodosProps, TodosState, TodoItem } from "./todos.d";
-import Todo from "./todo";
+// import Todo from "./todo";
+const Todo = lazy(() => import("./todo"));
 
 class Todos extends React.Component<TodosProps, TodosState> {
   // 使用在方法中箭头函数来替代this.handleExpand.bind(this)
@@ -14,12 +15,14 @@ class Todos extends React.Component<TodosProps, TodosState> {
     return (
       <div className="pages todos">
         <div className="todo-list">
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
           <Todo
             list={list}
             addTodo={addTodo}
             changeStatus={changeStatus}
             getData={getData}
           />
+          {/* </Suspense> */}
         </div>
       </div>
     );
