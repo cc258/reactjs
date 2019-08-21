@@ -14,7 +14,7 @@ const messages = require("translations/en.json");
 const intlProvider = new IntlProvider({ locale: "en", messages }, {});
 const { intl } = intlProvider.getChildContext();
 // set up MuiThemeProvider
-const muiTheme = getMuiTheme();
+// const muiTheme = getMuiTheme();
 // set up ConnectedRouter
 const router = new ReactRouterEnzymeContext().get().context.router;
 
@@ -26,17 +26,16 @@ function nodeWithProps(node) {
 // pass down the context of Provider, intlProvider, MuiThemeProvider and ConnectedRouter to shallow
 export function shallowWithProviders(node) {
   return shallow(nodeWithProps(node), {
-    context: { intl, muiTheme, router, store }
+    context: { intl, router, store }
   });
 }
 
 // pass down the context of Provider, intlProvider, MuiThemeProvider and ConnectedRouter to mount
 export function mountWithProviders(node) {
   return mount(nodeWithProps(node), {
-    context: { intl, muiTheme, router, store },
+    context: { intl, router, store },
     childContextTypes: {
       intl: intlShape,
-      muiTheme: React.PropTypes.object,
       router: React.PropTypes.object,
       store: React.PropTypes.object
     }
