@@ -35,9 +35,9 @@ export function mountWithProviders(node) {
   return mount(nodeWithProps(node), {
     context: { intl, router, store },
     childContextTypes: {
-      intl: intlShape,
-      router: React.PropTypes.object,
-      store: React.PropTypes.object
+      intl,
+      router,
+      store
     }
   });
 }

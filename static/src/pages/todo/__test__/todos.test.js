@@ -6,8 +6,7 @@
  */
 
 import React from "react";
-import { shallow } from "enzyme";
-import { mountWithProviders } from "enzymeHelper";
+import { shallowWithProviders } from "../../../utils/enzymeHelper";
 
 /*  TODO: import the component you want like material-ui TextField or FlatButton */
 
@@ -19,7 +18,7 @@ const defaultProps = {
 };
 
 const setup = (props = {}) => {
-  const wrapper = mountWithProviders(<Todos {...defaultProps} {...props} />);
+  const wrapper = shallowWithProviders(<Todos {...defaultProps} {...props} />);
   const actions = {
     /*  TODO: customize common DOM you want to test */
     mock: (...methods) => {
@@ -39,7 +38,7 @@ const setup = (props = {}) => {
 
 describe("<Todos />", () => {
   it("match snapshot", () => {
-    const wrapper = shallow(<Todos {...defaultProps} />);
+    const { wrapper } = setup();
     expect(wrapper).toMatchSnapshot();
   });
   it("must have ......", () => {
