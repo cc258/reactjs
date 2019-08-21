@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { actions } from "./todos.reducer";
 import { TodosProps, TodosState, TodoItem } from "./todos.d";
-// import Todo from "./todo";
 const Todo = lazy(() => import("./todo"));
 
 class Todos extends React.Component<TodosProps, TodosState> {

@@ -1,7 +1,7 @@
 import React from "react";
-// import { formatMessage, injectIntl } from "react-intl";
+import { HomeProps } from "./index.d";
 
-class Home extends React.Component {
+class Home extends React.Component<HomeProps> {
   render() {
     return (
       <div className="pages home" id="home">

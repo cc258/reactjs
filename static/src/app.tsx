@@ -34,7 +34,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <IntlProvider locale={"en"} key={"en"} messages={en_US}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div />}>
             <Routers />
           </Suspense>
         </IntlProvider>

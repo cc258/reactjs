@@ -29,7 +29,9 @@
     "react-leaflet": "^2.4.0",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
+    "react-router-enzyme-context": "^1.2.0",
     "redux": "^4.0.4",
+    "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "ws": "^7.1.1"
   },
@@ -82,7 +84,7 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.37.0",
     "webpack-bundle-analyzer": "^3.3.2",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1",
     "webpackbar": "^3.2.0"
