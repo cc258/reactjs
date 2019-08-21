@@ -10,7 +10,7 @@ const store = configureStore([])({});
 store.dispatch = jest.fn();
 const dispatch = store.dispatch;
 // set up intlProvider
-const messages = require("translations/en.json");
+const messages = require("../../lang/en_US");
 const intlProvider = new IntlProvider({ locale: "en", messages }, {});
 const { intl } = intlProvider.getChildContext();
 // set up MuiThemeProvider

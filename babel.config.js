@@ -1,17 +1,30 @@
-const presets = [
-  [
-    "@babel/preset-env",
-    {
-      targets: {
-        edge: "17",
-        firefox: "60",
-        chrome: "67",
-        safari: "11.1",
-        node: "current"
-      },
-      useBuiltIns: "usage"  // entry | usage
-    }
-  ]
-];
+module.exports = function (api) {
+  api.cache(true);
 
-module.exports = { presets };
+  const presets = [
+    [
+      "@babel/preset-env",
+      {
+        targets: {
+          "browsers": ["last 2 versions", "> 0.2%", "maintained node versions", "not dead"],
+        },
+      },
+    ],
+    ["@babel/preset-react"],
+    ["@babel/preset-typescript"]
+  ];
+  const plugins = [
+    ["@babel/plugin-proposal-decorators", {
+      "legacy": true
+    }],
+    ["@babel/plugin-proposal-class-properties", {
+      "loose": true
+    }],
+    "react-hot-loader/babel",
+  ];
+
+  return {
+    presets,
+    plugins
+  };
+}

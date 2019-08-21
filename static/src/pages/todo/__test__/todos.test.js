@@ -1,7 +1,7 @@
 // *** REMOVE THE COMMENTS IN THIS FILE TO START CODING UNIT TEST ***
 
 /*
- * Todo <= replace Todo with the Component you want to test.
+ * Todos <= replace Todos with the Component you want to test.
  * FunctionName <= replace FunctionName with the function you want to test.
  */
 
@@ -11,7 +11,7 @@ import { mountWithProviders } from "enzymeHelper";
 
 /*  TODO: import the component you want like material-ui TextField or FlatButton */
 
-import { Todo } from "../Todo";
+import { Todos } from "../Todos";
 
 const defaultProps = {
   /*  TODO: need to put default props here */
@@ -19,7 +19,7 @@ const defaultProps = {
 };
 
 const setup = (props = {}) => {
-  const wrapper = mountWithProviders(<Todo {...defaultProps} {...props} />);
+  const wrapper = mountWithProviders(<Todos {...defaultProps} {...props} />);
   const actions = {
     /*  TODO: customize common DOM you want to test */
     mock: (...methods) => {
@@ -37,26 +37,16 @@ const setup = (props = {}) => {
   };
 };
 
-describe("<Todo />", () => {
+describe("<Todos />", () => {
   it("match snapshot", () => {
-    const wrapper = shallow(<Todo {...defaultProps} />);
+    const wrapper = shallow(<Todos {...defaultProps} />);
     expect(wrapper).toMatchSnapshot();
   });
-  // it("must have ......", () => {
-  //   const { wrapper } = setup();
-  //   // TODO: check if the important DOM exists ex: button, input, table
-  //   expect(wrapper.find('todo-list')).toHaveLength(1);
-  // });
+  it("must have ......", () => {
+    const { wrapper } = setup();
+    // TODO: check if the important DOM exists ex: button, input, table
+    expect(wrapper.find('todo-list')).toHaveLength(1);
+  });
   // TODO: check events executing correctly or not, ex: click,change,keypress
   // TODO: check UI changing correctly or not when different props assign
 });
-
-// describe("functions of <Todo />", () => {
-//   it("FunctionName()", () => {
-//     const { actions } = setup();
-//     // if you want to mock FunctionName(), then use actions.mock('FunctionName');
-//     actions.FunctionName();
-//     // TODO: check the result correct or not
-//   });
-//   // TODO: test other functions
-// });
