@@ -18,7 +18,8 @@ class Todo extends React.Component<TodoProps, TodoState> {
     return (
       <div className="todo">
         <h1 onClick={getData}>
-          {formatMessage(messages.todo_index_title, { name })}
+          {/* {formatMessage(messages.todo_index_title, { name })} */}
+          hello Leo!
         </h1>
         <div className="new">
           <input

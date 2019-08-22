@@ -1,33 +1,35 @@
 import React from "react";
-import { shallowWithProviders } from "../../../utils/enzymeHelper";
+import { shallow, render } from "enzyme";
+import { IntlProvider } from "react-intl"; // mock IntlProvider in LanguageProvider
 
-import { Todo } from "../Todo";
+import Todo from "../Todo";
 
-const defaultProps = {
-  list: [],
+// set up intlProvider
+const intlProvider = new IntlProvider({ locale: "en" }, {});
+const intl = intlProvider.getChildContext();
+
+const context = {
+  intl
 };
 
-const setup = (props = {}) => {
-  const wrapper = shallowWithProviders(<Todo {...defaultProps} {...props} />);
-  const actions = {
-    mock: (...methods) => {
-      methods.forEach(method => {
-        wrapper.instance()[method] = jest.fn();
-        actions[method] = wrapper.instance()[method];
-      });
-    }
+const setup = () => {
+  const props = {
+    getData: jest.fn()
   };
+
+  const wrapper = shallow(<Todo {...props} />, { context });
   return {
-    wrapper,
-    actions,
-    dispatch: wrapper.props().dispatch
+    props,
+    wrapper
   };
 };
 
 describe("<Todo />", () => {
-  it("match snapshot", () => {
-    const { wrapper } = setup();
-    expect(wrapper).toMatchSnapshot();
+  it("click h1 to test getData", () => {
+    const { wrapper, props } = setup();
+    // expect(wrapper.find("h1").exists());
+    expect(wrapper.find("h1").toHaveLength(1);
+    // wrapper.find("h1").simulate("click");
+    // expect(props.getData).toBeCalled();
   });
-
 });
