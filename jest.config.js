@@ -117,7 +117,7 @@ module.exports = {
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  // snapshotSerializers: [],
+  // snapshotSerializers: ["enzyme-to-json/serializer"],
 
   // The test environment that will be used for testing
   testEnvironment: "node",
@@ -130,9 +130,9 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    // "**/__test__/**/*.[jt]s?(x)",
+    // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)"
-    "**/__test__/todo.test.[jt]s?(x)"
+    "**/__tests__/todo.test.[jt]s?(x)"
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
