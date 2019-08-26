@@ -1,5 +1,4 @@
 import { MouseEvent } from "react";
-import { InjectedIntlProps } from "react-intl";
 
 export interface TodosState {}
 
@@ -19,7 +18,7 @@ export interface TodoItem {
   txt: string;
 }
 
-interface TodoProps extends InjectedIntlProps {
+interface TodoProps {
   list?: Array<TodoItem>;
   addTodo?: Function;
   changeStatus: (list: Array<TodoItem>, item: TodoItem, idx: number) => void;

@@ -1,5 +1,4 @@
 import React, { ChangeEvent, lazy } from "react";
-import { injectIntl } from "react-intl";
 
 import { TodoProps, TodoState } from "./todos.d";
 import TodoList from "./todolist";
@@ -11,16 +10,21 @@ class Todo extends React.PureComponent<TodoProps, TodoState> {
     name: "Leo"
   };
 
+  // componentDidMount() {
+  //   const ctx = this.refs.canvas.getContext("2d");
+  //   ctx.fillRect(0, 0, 100, 100);
+  // }
+
   render = () => {
     const { name, newTodo } = this.state;
     const { list, changeStatus, getData } = this.props;
-    const { formatMessage, messages } = this.props.intl;
     return (
       <div className="todo">
         <h1 onClick={getData}>
           {/* {formatMessage(messages.todo_index_title, { name })} */}
           hello Leo!
         </h1>
+        <canvas ref="canvas" width={100} height={100} />
         <div className="new">
           <input
             className="newInput"
@@ -57,4 +61,4 @@ class Todo extends React.PureComponent<TodoProps, TodoState> {
   };
 }
 
-export default injectIntl<TodoProps>(Todo);
+export default Todo;

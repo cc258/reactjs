@@ -1,9 +1,16 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
+const { defaults: tsjPreset } = require("ts-jest/presets");
 module.exports = {
+  ...tsjPreset,
   // All imported modules in your tests should be mocked automatically
   // automock: false,
+
+  // A map from regular expressions to paths to transformers
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest"
+  },
 
   // Stop running tests after `n` failures
   // bail: 0,
@@ -56,7 +63,11 @@ module.exports = {
   // globalTeardown: null,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    "ts-jest": {
+      // ts-jest configuration goes here
+    }
+  },
 
   // An array of directory names to be searched recursively up from the requiring module's location
   // moduleDirectories: [
@@ -67,7 +78,10 @@ module.exports = {
   moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    "^@App/(.*)$": "<rootDir>/src/$1",
+    "^lib/(.*)$": "<rootDir>/common/$1"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -132,7 +146,7 @@ module.exports = {
   testMatch: [
     // "**/__tests__/**/*.[jt]s?(x)",
     // "**/?(*.)+(spec|test).[tj]s?(x)"
-    "**/__tests__/todo.test.[jt]s?(x)"
+    "<rootDir>/**/__tests__/*.test.[jt]s?(x)"
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -152,11 +166,6 @@ module.exports = {
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
   // timers: "real",
-
-  // A map from regular expressions to paths to transformers
-  transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest"
-  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: ["\\\\node_modules\\\\"],

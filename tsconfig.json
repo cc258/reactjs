@@ -20,8 +20,8 @@
     "allowJs": true,
     "lib": ["dom", "es6", "es7"],
     "rootDir": "./static/",
-    "outDir": "./static/dist/",
+    "outDir": "./static/dist/"
   },
-  "include": ["./static/**/*"],
+  "include": ["./static/**/*"]
   // "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"]
 }
