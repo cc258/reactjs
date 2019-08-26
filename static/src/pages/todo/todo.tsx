@@ -10,10 +10,11 @@ class Todo extends React.PureComponent<TodoProps, TodoState> {
     name: "Leo"
   };
 
-  // componentDidMount() {
-  //   const ctx = this.refs.canvas.getContext("2d");
-  //   ctx.fillRect(0, 0, 100, 100);
-  // }
+  componentDidMount() {
+    const canvas: any = this.refs.canvas;
+    const ctx = canvas.getContext("2d");
+    ctx.fillRect(0, 0, 100, 100);
+  }
 
   render = () => {
     const { name, newTodo } = this.state;
