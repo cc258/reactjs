@@ -4,8 +4,6 @@ const Api = require("./controller/api");
 
 const router = require("koa-router")();
 
-console.log("---------into router----------");
-
 module.exports = router
   .get("/", Home.index)
   .get("/(index|hook|typescript|todos|format|simulator|websocket)", Home.index)

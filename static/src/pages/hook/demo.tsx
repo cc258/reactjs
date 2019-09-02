@@ -18,7 +18,7 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Demo(props) {
+export default function Demo(props: any) {
   const [state, dispatch] = useReducer(reducer);
 
   const [stars, setStars] = useState(0);
