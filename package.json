@@ -10,11 +10,15 @@
     "build": "webpack --config ./build/webpack.prod.js",
     "build:dll": "webpack --config ./build/webpack.dll.js",
     "build:dev": "webpack --config ./build/webpack.dev.js",
+    "start:webpack": "webpack-dev-server --color --config ./build/webpack.server.js",
+    "start:react": "npm run build:dll && npm run build:dev && npm run start:webpack",
     "start:server": "nodemon --inspect ./server/app.js",
-    "start": "webpack-dev-server --color --config ./build/webpack.dev.js"
+    "start": "npm run build:dll && npm run build:dev && npm run start:server"
   },
   "dependencies": {
+    "@antv/g2": "^3.5.8-beta.3",
     "axios": "^0.19.0",
+    "echarts": "^4.2.1",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "koa-nunjucks-2": "^3.0.2",

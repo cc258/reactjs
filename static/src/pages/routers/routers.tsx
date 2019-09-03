@@ -9,6 +9,8 @@ import Todos from "../todo/todos";
 import Format from "../format/format";
 import Simulator from "../simulator/simulator";
 import Websocket from "../websocket/websocket";
+import Graph from "../g2/g2";
+import ECharts from "../echats/echats";
 import NotFound from "../not-found/not-found";
 
 class Routers extends React.Component {
@@ -38,6 +40,12 @@ class Routers extends React.Component {
             <li>
               <Link to="/websocket">Websocket</Link>
             </li>
+            <li>
+              <Link to="/g2">G2</Link>
+            </li>
+            <li>
+              <Link to="/echats">ECharts</Link>
+            </li>
           </ul>
         </nav>
         <Switch>
@@ -48,6 +56,8 @@ class Routers extends React.Component {
           <Route path="/format/" component={Format} />
           <Route path="/simulator/" component={Simulator} />
           <Route path="/websocket/" component={Websocket} />
+          <Route path="/g2/" component={Graph} />
+          <Route path="/echats/" component={ECharts} />
           <Route component={NotFound} />
         </Switch>
       </Router>

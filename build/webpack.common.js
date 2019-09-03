@@ -9,8 +9,9 @@ const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 
 const output = {
-  publicPath: "/",
-  path: path.resolve(__dirname, "../static/dist") // 打包后文件夹存放路径。
+  path: path.resolve(__dirname, "../static/dist"),
+  filename: "[name].js",
+  chunkFilename: "[name].js"
 };
 
 const webpackModule = {
@@ -19,26 +20,26 @@ const webpackModule = {
       test: /\.(j|t)sx?$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
         options: {
           cacheDirectory: true,
           babelrc: false,
           presets: [
             [
-              '@babel/preset-env',
-              { targets: { browsers: 'last 2 versions' } }, // or whatever your project requires
+              "@babel/preset-env",
+              { targets: { browsers: "last 2 versions" } } // or whatever your project requires
             ],
-            '@babel/preset-typescript',
-            '@babel/preset-react',
+            "@babel/preset-typescript",
+            "@babel/preset-react"
           ],
           plugins: [
             // plugin-proposal-decorators is only needed if you're using experimental decorators in TypeScript
-            ['@babel/plugin-proposal-decorators', { legacy: true }],
-            ['@babel/plugin-proposal-class-properties', { loose: true }],
-            'react-hot-loader/babel',
-          ],
-        },
-      },
+            ["@babel/plugin-proposal-decorators", { legacy: true }],
+            ["@babel/plugin-proposal-class-properties", { loose: true }],
+            "react-hot-loader/babel"
+          ]
+        }
+      }
     },
     {
       test: /\.css$/,
@@ -60,7 +61,7 @@ const plugins = [
   /**
    * 打包后先清除dist文件，先于HtmlWebpackPlugin运行
    */
-  // new CleanWebpackPlugin(),
+  new CleanWebpackPlugin(),
   /**
    * webpack打包进度条
    * Elegant ProgressBar and Profiler for Webpack
@@ -114,18 +115,20 @@ const optimization = {
       // 公共代码打包分组配置
       vendors: {
         test: /[\\/]node_modules[\\/]/,
-        name: 'vendors'
+        name: "vendors"
       }
     }
-  },
+  }
 };
 
 const resolve = {
   extensions: [".tsx", ".ts", ".js", ".jsx", "json"],
   alias: {
-    'react-hot-loader': path.resolve(path.join(__dirname, '../node_modules/react-hot-loader')),
-    react: path.resolve(path.join(__dirname, '../node_modules/react')),
-  },
+    "react-hot-loader": path.resolve(
+      path.join(__dirname, "../node_modules/react-hot-loader")
+    ),
+    react: path.resolve(path.join(__dirname, "../node_modules/react"))
+  }
 };
 
 const performance = {
@@ -138,7 +141,7 @@ const commonConfig = {
   module: webpackModule,
   resolve,
   performance,
-  output,
+  output
 };
 
 module.exports = commonConfig;

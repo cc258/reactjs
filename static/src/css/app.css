@@ -294,3 +294,8 @@ h1 {
 .websocket {
   font-size: 18px;
 }
+
+.echats #container {
+  width: 400px;
+  height: 400px;
+}

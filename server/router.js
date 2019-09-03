@@ -5,8 +5,6 @@ const Api = require("./controller/api");
 const router = require("koa-router")();
 
 module.exports = router
-  .get("/", Home.index)
-  .get("/(index|hook|typescript|todos|format|simulator|websocket)", Home.index)
   .get("/getdata", Api.getData)
   .get("/sn/:id", Home.sn)
   .get("/user/reg", User.reg)

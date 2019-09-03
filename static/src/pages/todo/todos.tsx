@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { connect } from "react-redux";
 
 import { actions } from "./todos.reducer";
-import { TodosProps, TodosState, TodoItem } from "./todos.d";
+import { TodosProps, TodosState } from "./todos.d";
 const Todo = lazy(() => import("./todo"));
 
 class Todos extends React.Component<TodosProps, TodosState> {
@@ -14,14 +14,12 @@ class Todos extends React.Component<TodosProps, TodosState> {
     return (
       <div className="pages todos">
         <div className="todo-list">
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
           <Todo
             list={list}
             addTodo={addTodo}
             changeStatus={changeStatus}
             getData={getData}
           />
-          {/* </Suspense> */}
         </div>
       </div>
     );
