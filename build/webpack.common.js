@@ -9,6 +9,7 @@ const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 
 const output = {
+  publicPath: '/',
   path: path.resolve(__dirname, "../static/dist"),
   filename: "[name].js",
   chunkFilename: "[name].js"
