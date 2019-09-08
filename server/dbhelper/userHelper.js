@@ -9,16 +9,7 @@ var User = mongoose.model('User')
  * @return {[type]}                     [description]
  */
 exports.findByPhoneNumber = async ({ phoneNumber }) => {
-  var query = User.find({ phoneNumber })
-  var res = null
-  await query.exec(function (err, user) {
-    if (err) {
-      res = {}
-    } else {
-      res = user
-    }
-  })
-  // console.log('res====>' + res)
+  const res = await User.find({ phoneNumber })
   return res;
 }
 
@@ -27,15 +18,7 @@ exports.findByPhoneNumber = async ({ phoneNumber }) => {
  * @return {[type]} [description]
  */
 exports.findAllUsers = async () => {
-  var query = User.find({});
-  var res = []
-  await query.exec(function (err, users) {
-    if (err) {
-      res = []
-    } else {
-      res = users;
-    }
-  })
+  const res = await User.find({});
   return res
 }
 

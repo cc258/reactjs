@@ -94,8 +94,6 @@ exports.update = async (ctx, next) => {
  */
 exports.users = async (ctx, next) => {
   var data = await userHelper.findAllUsers()
-  // var obj = await userHelper.findByPhoneNumber({phoneNumber : '13525584568'})
-  // console.log('obj=====================================>'+obj)
 
   ctx.body = {
     success: true,

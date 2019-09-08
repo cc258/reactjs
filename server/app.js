@@ -14,7 +14,7 @@ const db = 'mongodb://localhost:8888/koa_db'
  * mongoose连接数据库
  * @type {[type]}
  */
-mongoose.Promise = require('bluebird')
+// mongoose.Promise = require('bluebird')
 mongoose.connect(db)
 
 /**
