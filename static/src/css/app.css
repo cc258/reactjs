@@ -81,7 +81,7 @@ h1 {
 
 .moon {
   color: #fff;
-  background: #2d3468 url(./images/dark.png) no-repeat;
+  background: #2d3468 url(./images/dark.jpeg) no-repeat;
   background-size: 100%;
   min-height: 400px;
 }
@@ -238,7 +238,7 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(./images/simulator_ferrari.jpg) no-repeat 100% 50%;
+  background: url(./images/simulator_ferrari.jpeg) no-repeat 100% 50%;
   background-size: auto 100%;
 }
 

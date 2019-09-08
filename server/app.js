@@ -1,8 +1,55 @@
-const path = require("path");
+const fs = require('fs')
+const path = require('path')
 const Koa = require("koa");
+const cors = require('koa2-cors')
 const static = require("koa-static");
 const bodyParser = require("koa-bodyparser");
 const koaNunjucks = require("koa-nunjucks-2");
+const mongoose = require('mongoose');
+
+// mongo
+const db = 'mongodb://localhost:8888/koa_db'
+
+/**
+ * mongoose连接数据库
+ * @type {[type]}
+ */
+mongoose.Promise = require('bluebird')
+mongoose.connect(db)
+
+/**
+ * 获取数据库表对应的js对象所在的路径
+ * @type {[type]}
+ */
+const models_path = path.join(__dirname, './models')
+
+
+/**
+ * 已递归的形式，读取models文件夹下的js模型文件，并require
+ * @param  {[type]} modelPath [description]
+ * @return {[type]}           [description]
+ */
+var walk = function (modelPath) {
+  fs
+    .readdirSync(modelPath)
+    .forEach(function (file) {
+      var filePath = path.join(modelPath, '/' + file)
+      var stat = fs.statSync(filePath)
+
+      if (stat.isFile()) {
+        if (/(.*)\.(js|coffee)/.test(file)) {
+          require(filePath)
+        }
+      }
+      else if (stat.isDirectory()) {
+        walk(filePath)
+      }
+    })
+}
+walk(models_path)
+
+// end mongo
+
 
 const app = new Koa();
 
@@ -11,6 +58,15 @@ const socketPort = { port: 7080 };
 // 关于静态资源地址，相对于app.js的路径，如果遇到路径不正确，打点或console查看
 const public = "../static/dist";
 
+
+// 处理跨域的配置
+app.use(cors({
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+  maxAge: 100,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous'],
+}));
 
 app.use(bodyParser());
 app.use(static(path.resolve(__dirname, public)));

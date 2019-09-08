@@ -3,6 +3,7 @@ import { hot, setConfig } from "react-hot-loader";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 import Home from "../home/home";
+import Mongoose from "../mongoose/mongoose";
 import Hook from "../hook/hook";
 import Typescript from "../typescript/typescript";
 import Todos from "../todo/todos";
@@ -21,6 +22,9 @@ class Routers extends React.Component {
           <ul>
             <li>
               <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/mongoose">Mongoose</Link>
             </li>
             <li>
               <Link to="/hook/">Hook123</Link>
@@ -50,6 +54,7 @@ class Routers extends React.Component {
         </nav>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/mongoose" component={Mongoose} />
           <Route path="/hook/" component={Hook} />
           <Route path="/typescript/" component={Typescript} />
           <Route path="/todos/" component={Todos} />
