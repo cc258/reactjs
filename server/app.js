@@ -8,7 +8,7 @@ const koaNunjucks = require("koa-nunjucks-2");
 const mongoose = require('mongoose');
 
 // mongo
-const db = 'mongodb://localhost:8888/koa_db'
+const db = 'mongodb://localhost:27017/koa_db'
 
 /**
  * mongoose连接数据库
