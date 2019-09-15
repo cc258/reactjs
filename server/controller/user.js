@@ -1,10 +1,6 @@
-'use strict'
-
-var mongoose = require('mongoose')
-var User = mongoose.model('User')
-var uuid = require('uuid')
-// var userHelper = require('../dbhelper/userHelper')
-const userHelper = require('../dbhelper/userHelper')
+const mongoose = require('mongoose')
+const User = mongoose.model('User')
+const uuid = require('uuid')
 
 /**
  * 注册新用户
@@ -12,16 +8,16 @@ const userHelper = require('../dbhelper/userHelper')
  * @yield {[type]}   [description]
  */
 exports.signup = async (ctx, next) => {
-  var phoneNumber = ctx.request.body.phoneNumber.trim()
-  var user = await User.findOne({
+  const phoneNumber = ctx.request.body.phoneNumber.trim()
+  const user = await User.findOne({
     phoneNumber: phoneNumber
   }).exec()
   console.log(user)
 
-  var verifyCode = Math.floor(Math.random() * 10000 + 1)
+  const verifyCode = Math.floor(Math.random() * 10000 + 1)
   console.log(phoneNumber)
   if (!user) {
-    var accessToken = uuid.v4()
+    const accessToken = uuid.v4()
 
     user = new User({
       nickname: '测试用户',
@@ -84,38 +80,40 @@ exports.update = async (ctx, next) => {
   }
 }
 
-
-
-/**
- * 数据库接口测试
- * @param  {[type]}   ctx  [description]
- * @param  {Function} next [description]
- * @return {[type]}        [description]
- */
-exports.users = async (ctx, next) => {
-  var data = await userHelper.findAllUsers()
-
-  ctx.body = {
-    success: true,
-    data
-  }
+exports.users = async () => {
+  console.log('========users=======', User)
+  const res = await User.find({});
+  return res;
 }
 exports.addUser = async (ctx, next) => {
-  var user = new User({
+  console.log('result=======')
+  const user = new User({
     nickname: '测试用户',
     avatar: 'http://ip.example.com/u/xxx.png',
     phoneNumber: '13800138000',
     verifyCode: '5896',
     accessToken: uuid.v4()
   })
-  var user2 = await userHelper.addUser(user)
-  if (user2) {
+  const result = await userHelper.addUser(user)
+  console.log('result=======', result)
+  if (result) {
     ctx.body = {
       success: true,
-      data: user2
+      data: result
     }
   }
 }
+
+exports.updateUser = async (ctx, next) => {
+  const phoneNumber = ctx.request.body.phoneNumber.trim()
+  console.log(phoneNumber)
+  // var data = await userHelper.updateUser({ phoneNumber })
+  // ctx.body = {
+  //   success: true,
+  //   data
+  // }
+}
+
 exports.deleteUser = async (ctx, next) => {
   const phoneNumber = ctx.request.body.phoneNumber.trim()
   console.log(phoneNumber)
