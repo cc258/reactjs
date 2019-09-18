@@ -22,6 +22,9 @@ const devServerConfig = {
     hot: true,
     inline: true,
     open: true,
+    // proxy: {
+    //   "localhost:8080": "localhost:8090" // 访问本地服务器的/api路径时，代理到目标地址
+    // },
 
     // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。
     noInfo: true,
@@ -31,7 +34,7 @@ const devServerConfig = {
     historyApiFallback: true
   },
   plugins: [
-    // 插件
+    // 插件~
     new webpack.NamedModulesPlugin(), //用于启动HMR时可以显示模块的相对路径
     new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
     new webpack.DefinePlugin({
