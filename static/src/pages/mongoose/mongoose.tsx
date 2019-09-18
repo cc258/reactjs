@@ -12,7 +12,7 @@ export default function Mongoose() {
 
   return (
     <div className="pages">
-      <h3>注册</h3>
+      <h3>Friends</h3>
       <ul>
         <li>
           name
