@@ -16,8 +16,9 @@ services:
 
   koa:
     build: .
-    command: npm run start
+    command: npm run start:server
     depends_on:
+      - react
       - mongo
     ports:
       - "8090:8090"
