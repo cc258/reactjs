@@ -1,4 +1,4 @@
-const Star = require('../models/star');
+const Star = require("../models/star");
 
 module.exports = class Api {
   static async getData(ctx) {
@@ -6,7 +6,7 @@ module.exports = class Api {
   }
 
   static async allStar(ctx) {
-    ctx.body = await Star.find({})
+    ctx.body = await Star.find({});
   }
 
   static async starAdd(ctx) {
@@ -17,8 +17,8 @@ module.exports = class Api {
       } else {
         console.log(`save success! ${res}`);
       }
-    })
-    ctx.body = '';
+    });
+    ctx.body = "";
   }
 
   static async starUpdate(ctx) {
@@ -29,8 +29,8 @@ module.exports = class Api {
       } else {
         console.log(`update success! ${res}`);
       }
-    })
-    ctx.body = '';
+    });
+    ctx.body = "";
   }
 
   static async starDelete(ctx) {
@@ -41,7 +41,7 @@ module.exports = class Api {
       } else {
         console.log(`delete success! ${res}`);
       }
-    })
-    ctx.body = '';
+    });
+    ctx.body = "";
   }
 };

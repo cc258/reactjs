@@ -1,12 +1,11 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require("fs");
+const path = require("path");
 const Koa = require("koa");
-const cors = require('koa2-cors')
+const cors = require("koa2-cors");
 const static = require("koa-static");
 const bodyParser = require("koa-bodyparser");
 const koaNunjucks = require("koa-nunjucks-2");
 // const mongoose = require('mongoose');
-
 
 // const db = 'mongodb://localhost:27017/koa_db'
 
@@ -22,7 +21,6 @@ const koaNunjucks = require("koa-nunjucks-2");
 //  * @type {[type]}
 //  */
 // const models_path = path.join(__dirname, './models')
-
 
 // /**
 //  * 已递归的形式，读取models文件夹下的js模型文件，并require
@@ -48,7 +46,6 @@ const koaNunjucks = require("koa-nunjucks-2");
 // }
 // walk(models_path)
 
-
 const app = new Koa();
 
 const port = 8090;
@@ -56,15 +53,28 @@ const socketPort = { port: 7080 };
 // 关于静态资源地址，相对于app.js的路径，如果遇到路径不正确，打点或console查看
 const public = "../static/dist";
 
-
 // 处理跨域的配置
-app.use(cors({
-  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
-  maxAge: 100,
-  credentials: true,
-  allowMethods: ['GET', 'POST', 'OPTIONS'],
-  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous'],
-}));
+app.use(
+  cors({
+    origin: function(ctx) {
+      if (ctx.url) {
+        return "*"; // 允许来自所有域名请求
+      }
+      return "http://localhost:8080"; // 这样就能只允许 http://localhost:8080 这个域名的请求了
+    },
+    exposeHeaders: ["WWW-Authenticate", "Server-Authorization", "Date"],
+    maxAge: 100,
+    credentials: true,
+    allowMethods: ["GET", "POST", "OPTIONS"],
+    allowHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Accept",
+      "X-Custom-Header",
+      "anonymous"
+    ]
+  })
+);
 
 app.use(bodyParser());
 app.use(static(path.resolve(__dirname, public)));
@@ -85,8 +95,6 @@ app.use(
 // nunjucksConfig: Object of Nunjucks config options.
 // configureEnvironment: A function to modify the Nunjucks environment. See the Extending Nunjucks section below for usage.
 
-
-
 // websocket
 const WebSocket = require("ws");
 const clients = [];
@@ -98,12 +106,11 @@ wss.on("connection", function connection(ws) {
       "\033[45;30m DONE \033[40;32m received: " + message + "/ \033[0m",
       message
     );
-    clients.forEach(function (ws1) {
+    clients.forEach(function(ws1) {
       ws1.send(`service, ${message}`);
     });
   });
 });
-
 
 app.use(require("./router").routes());
 app.listen(port);
