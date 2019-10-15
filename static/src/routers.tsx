@@ -2,17 +2,17 @@ import React from "react";
 import { hot, setConfig } from "react-hot-loader";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
-import Home from "../home/home";
-import Mongoose from "../mongoose/mongoose";
-import Hook from "../hook/hook";
-import Typescript from "../typescript/typescript";
-import Todos from "../todo/todos";
-import Format from "../format/format";
-import Simulator from "../simulator/simulator";
-import Websocket from "../websocket/websocket";
-import Graph from "../g2/g2";
-import ECharts from "../echats/echats";
-import NotFound from "../not-found/not-found";
+import Home from "./pages/home/home";
+import Mongoose from "./pages/mongoose/mongoose";
+import Hook from "./pages/hook/hook";
+import Typescript from "./pages/typescript/typescript";
+import Todos from "./pages/todo/todos";
+import Format from "./pages/format/format";
+import Simulator from "./pages/simulator/simulator";
+import Websocket from "./pages/websocket/websocket";
+import Graph from "./pages/g2/g2";
+import ECharts from "./pages/echats/echats";
+import NotFound from "./pages/not-found/not-found";
 
 class Routers extends React.Component {
   render() {

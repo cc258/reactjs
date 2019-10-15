@@ -9,7 +9,7 @@ import { IntlProvider } from "react-intl";
 import thunk from "redux-thunk";
 import todos from "./pages/todo/todos.reducer";
 
-import Routers from "./pages/routers/routers";
+import Routers from "./routers";
 
 import "./css/app.css";
 
