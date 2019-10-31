@@ -89,6 +89,12 @@ h1 {
 .hook h1 {
   color: #fc0;
 }
+.hook h3 {
+  margin: 0 200px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+}
 
 .hook section {
   padding: 150px 50px 50px;

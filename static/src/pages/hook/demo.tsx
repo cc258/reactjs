@@ -27,11 +27,29 @@ export default function Demo(props: any) {
   const eName = useName();
   const width = useResize();
 
+  const [widgetData, setWidgetData] = useState();
+
   const theme = useContext(ThemeContext);
 
   function onStars() {
     setStars(stars + 10);
   }
+
+  function getWidgetData() {
+    axios
+      .post("http://localhost:8090/api/v1/widget", {
+        params: {
+          id: 12345
+        }
+      })
+      .then(res => {
+        setWidgetData(res);
+      });
+  }
+
+  useEffect(() => {
+    getWidgetData();
+  }, []);
 
   function getRightPoint() {
     axios
@@ -68,9 +86,8 @@ export default function Demo(props: any) {
       </div>
 
       <h3>
-        <pre>{JSON.stringify(state, null, 2)}</pre>
+        <pre>{JSON.stringify(widgetData, null, 2)}</pre>
       </h3>
-      <button onClick={getRightPoint}>getRightPoint</button>
       <button onClick={() => dispatch({ type: "increment", count: 0 })}>
         +1
       </button>

@@ -12,8 +12,8 @@
     "build:dev": "webpack --config ./build/webpack.dev.js",
     "start:webpack": "webpack-dev-server --color --config ./build/webpack.server.js",
     "start:react": "npm run build:dll && npm run build:dev && npm run start:webpack",
-    "start:server": "nodemon --inspect ./server/app.js",
-    "start": "npm run build:dll && npm run build:dev && npm run start:server"
+    "start:node": "nodemon --inspect ./server/app.js",
+    "start": "npm run start:react"
   },
   "dependencies": {
     "@antv/g2": "^3.5.8-beta.3",

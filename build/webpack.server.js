@@ -15,7 +15,7 @@ const devServerConfig = {
   devServer: {
     contentBase: path.resolve(__dirname, "../static/dist"),
     compress: true,
-    host: "localhost",
+    host: "0.0.0.0",
     port: 8080,
     // quiet: true,
     // 重要，关于热加载的细节 https://github.com/webpack/docs/wiki/webpack-dev-server#content-base
@@ -23,7 +23,8 @@ const devServerConfig = {
     inline: true,
     open: true,
     proxy: {
-      "/api": "http://localhost:8090" // 访问本地服务器的/api路径时，代理到目标地址
+      "/api": "http://localhost:8090", // 访问本地服务器的/api路径时，代理到目标地址
+      "/v1": "http://localhost:8090"
     },
 
     // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。

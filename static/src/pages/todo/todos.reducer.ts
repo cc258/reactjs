@@ -45,11 +45,7 @@ export const actions = {
 
   getData: (e: MouseEvent) => (dispatch: Dispatch) => {
     axios
-      .get("/getdata", {
-        params: {
-          id: 12345
-        }
-      })
+      .get("/v1/telematics/vehicles/L6T7944Z5GN400022/tem/last-reset-time")
       .then(res => {
         const data = res.data;
         dispatch({ type: TODO_GETDATA, data });
