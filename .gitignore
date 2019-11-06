@@ -5,6 +5,7 @@ lib/
 target/
 database/
 eclipse/
-static/dist/
+dist/
 tmp/
 node_modules
+static/dll/
