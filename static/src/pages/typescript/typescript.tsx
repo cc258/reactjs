@@ -5,13 +5,13 @@ import React, {
   ChangeEvent,
   ChangeEventHandler
 } from "react";
-import { injectIntl, InjectedIntlProps } from "react-intl";
+import { injectIntl } from "react-intl";
 // import Ts from "./ts.tsx";
 
 // InjectedIntlProps: react-intl类型检查
 // 可选属性的好处之一是可以对可能存在的属性进行预定义，好处之二是可以捕获引用了不存在的属性时的错误。
 
-export interface TypescriptProps extends InjectedIntlProps {
+export interface TypescriptProps {
   // 基本类型
   name: string;
   age?: number;

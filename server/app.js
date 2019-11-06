@@ -50,7 +50,7 @@ wss.on("connection", function connection(ws) {
       "\033[45;30m DONE \033[40;32m received: " + message + "/ \033[0m",
       message
     );
-    clients.forEach(function(ws1) {
+    clients.forEach(function (ws1) {
       ws1.send(`service, ${message}`);
     });
   });
@@ -61,7 +61,7 @@ app.listen(port);
 console.log(
   "\033[45;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"
 );
-console.log(
-  "\033[43;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"
-);
+// console.log(
+//   "\033[43;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"
+// );
 console.log("启动成功");
