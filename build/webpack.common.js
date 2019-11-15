@@ -9,7 +9,7 @@ const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 
 const output = {
-  publicPath: '/',
+  publicPath: "/",
   path: path.resolve(__dirname, "../static/dist"),
   filename: "[name].js",
   chunkFilename: "[name].js"
@@ -43,8 +43,8 @@ const webpackModule = {
       }
     },
     {
-      test: /\.css$/,
-      use: ["style-loader", "css-loader", "postcss-loader"]
+      test: /\.(sc|sa|c)ss$/,
+      use: ["style-loader", "css-loader", "sass-loader"]
     },
     {
       test: /\.(png|jpe?g|gif|svg)$/i,

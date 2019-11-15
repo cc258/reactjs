@@ -8,4 +8,4 @@ eclipse/
 dist/
 tmp/
 node_modules
-static/dll/
+package-lock.json

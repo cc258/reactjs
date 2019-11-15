@@ -70,6 +70,6 @@ class Routers extends React.Component {
   }
 }
 
-setConfig({ logLevel: "debug" });
+setConfig({ reloadHooks: false });
 
-export default hot(module)(Routers);
+export default Routers;

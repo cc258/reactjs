@@ -69,7 +69,7 @@ export default function Demo(props: any) {
   return (
     <section className={theme}>
       <h1 onClick={onStars}>
-        {cName.value} / {eName.value} counts {stars} stars
+        {cName.value} / {eName.value} counts {stars} stars 12321
       </h1>
       <h4>window width: {width}px</h4>
       <div>
