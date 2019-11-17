@@ -10,7 +10,7 @@ const Home: React.FC<HomeProps> = () => {
 
   return (
     <div className="pages home" id="home">
-      <h1>{f({ id: "simple" })}</h1>
+      <h1>{f({ id: "simple" })}123</h1>
       <h1>{JSON.stringify(props, null, 4)}</h1>
       <h1>In the end, </h1>
       <h2>everything will have a happy ending. </h2>
