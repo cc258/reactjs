@@ -22,6 +22,7 @@ const devServerConfig = {
     hot: true,
     inline: true,
     open: true,
+    openPage: "http://localhost:8080",
     proxy: {
       "/api": "http://localhost:8090", // 访问本地服务器的/api路径时，代理到目标地址
       "/v1": "http://localhost:8090"

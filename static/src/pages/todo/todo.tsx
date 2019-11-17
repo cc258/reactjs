@@ -23,7 +23,7 @@ class Todo extends React.PureComponent<TodoProps, TodoState> {
       <div className="todo">
         <h1 onClick={getData}>
           {/* {formatMessage(messages.todo_index_title, { name })} */}
-          hello Chuang 123!
+          hello Chuang
         </h1>
         <canvas ref="canvas" width={100} height={100} />
         <div className="new">

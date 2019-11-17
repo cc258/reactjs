@@ -43,7 +43,7 @@ app.use(
 const WebSocket = require("ws");
 const clients = [];
 const wss = new WebSocket.Server(socketPort);
-wss.on("connection", function connection(ws) {
+wss.on("connection", function connection(ws, req) {
   clients.push(ws);
   ws.on("message", function incoming(message) {
     console.log(
