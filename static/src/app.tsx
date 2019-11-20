@@ -11,7 +11,7 @@ import todos from "./pages/todo/todos.reducer";
 
 import Routers from "./routers";
 
-import "./css/app.scss";
+import "./assets/app.scss";
 
 const INITIAL: any = {};
 

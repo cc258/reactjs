@@ -1,6 +1,6 @@
-import React from "react";
-import Theme from "./theme";
-import Demo from "./demo";
+import React from 'react'
+import Theme from './theme'
+import Demo from './demo'
 
 function Hook() {
   return (
@@ -9,7 +9,7 @@ function Hook() {
         <Demo />
       </Theme.Provider>
     </div>
-  );
+  )
 }
 
-export default Hook;
+export default Hook
