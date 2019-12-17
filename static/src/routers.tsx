@@ -4,6 +4,7 @@ import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from './pages/home/home'
+import Memo from './pages/memo/memo'
 import Mongoose from './pages/mongoose/mongoose'
 import Hook from './pages/hook/hook'
 import Typescript from './pages/typescript/typescript'
@@ -28,6 +29,9 @@ class Routers extends React.Component {
 					<ul>
 						<li>
 							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/memo">Memo</Link>
 						</li>
 						<li>
 							<Link to="/mongoose">Mongoose</Link>
@@ -60,6 +64,7 @@ class Routers extends React.Component {
 				</nav>
 				<Switch>
 					<Route exact path="/" component={Home} />
+					<Route exact path="/memo" component={Memo} />
 					<Route exact path="/mongoose" component={Mongoose} />
 					<Route path="/hook/" component={Hook} />
 					<Route path="/typescript/" component={Typescript} />
