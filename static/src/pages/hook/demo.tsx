@@ -3,7 +3,7 @@ import axios from 'axios'
 import ThemeContext from './theme'
 import { actions } from '../todo/todos.reducer'
 
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
 	switch (action.type) {
 		case 'getRightPoint':
 			return { ...state, ajax: action.data }
@@ -19,7 +19,7 @@ const reducer = (state, action) => {
 }
 
 export default function Demo(props: any) {
-	const [state, dispatch] = useReducer(reducer)
+	const [state, dispatch] = useReducer(reducer, {})
 
 	const [stars, setStars] = useState(0)
 
@@ -29,7 +29,7 @@ export default function Demo(props: any) {
 
 	const [widgetData, setWidgetData] = useState()
 
-	const theme = useContext(ThemeContext)
+	const theme = useContext<string>(ThemeContext)
 
 	function onStars() {
 		setStars(stars + 10)
@@ -91,15 +91,13 @@ export default function Demo(props: any) {
 			<button onClick={() => dispatch({ type: 'increment', count: 0 })}>
 				+1
 			</button>
-			{/* <button onClick={() => dispatch("decrement")}>-1</button>
-      <button onClick={() => dispatch("reset")}>reset</button> */}
 		</section>
 	)
 }
 // cumston hooks
 function useName() {
 	const [name, setName] = useState()
-	function onName(e) {
+	function onName(e: any) {
 		setName(e.target.value)
 	}
 	return { value: name, onChange: onName }

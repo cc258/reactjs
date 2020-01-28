@@ -15,12 +15,6 @@ import Websocket from './pages/websocket/websocket'
 import Graph from './pages/g2/g2'
 import ECharts from './pages/echats/echats'
 import NotFound from './pages/not-found/not-found'
-
-import CONFIG from '../../public/config'
-import cc from '../../public/projects/cc.js'
-
-console.log(CONFIG)
-console.log(cc)
 class Routers extends React.Component {
 	render() {
 		return (
