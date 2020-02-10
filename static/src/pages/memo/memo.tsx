@@ -1,11 +1,12 @@
-import React,{ memo, useState, useEffect, useContext, useReducer } from 'react'
+import React, { memo, useState, useEffect, useContext, useReducer } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 // https://juejin.im/post/5d594ea5518825041301bbcb
 
 export default function Demo(props: any) {
 	const [stars, setStars] = useState(0)
-	const [widgetData,setWidgetData] = useState();
+	const [widgetData, setWidgetData] = useState()
 
 	function onStars() {
 		setStars(stars + 10)
@@ -37,15 +38,15 @@ export default function Demo(props: any) {
 	)
 }
 
-const ChildOne = () =>{
-	console.log('Child one rendering');
+const ChildOne = () => {
+	console.log('Child one rendering')
 	return <h2>Child One</h2>
 }
 
-const ChildTwo = () =>{
-	console.log('Child two rendering');
+const ChildTwo = () => {
+	console.log('Child two rendering')
 	return <h2>Child two</h2>
 }
 
-const MemoChildOne = memo(ChildOne);
-const MemoChildTwo = memo(ChildTwo);
+const MemoChildOne = memo(ChildOne)
+const MemoChildTwo = memo(ChildTwo)

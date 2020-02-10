@@ -1,10 +1,10 @@
-import React from "react";
-import { FormattedMessage, injectIntl } from "react-intl";
+import React from 'react'
+import { FormattedMessage, injectIntl } from 'react-intl'
 
 class NotFound extends React.Component {
-  render() {
-    return <div className="pages not-found" />;
-  }
+	render() {
+		return <div className="pages not-found" />
+	}
 }
 
-export default injectIntl(NotFound);
+export default injectIntl(NotFound)
