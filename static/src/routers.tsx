@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from './pages/home/home'
 import Memo from './pages/memo/memo'
+import ListApi from './pages/list-api/list-api'
 import NotFound from './pages/not-found/not-found'
 class Routers extends React.Component {
 	render() {
@@ -18,11 +19,15 @@ class Routers extends React.Component {
 						<li>
 							<Link to="/memo">Memo</Link>
 						</li>
+						<li>
+							<Link to="/listapi">ListApi</Link>
+						</li>
 					</ul>
 				</nav>
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/memo" component={Memo} />
+					<Route exact path="/listapi" component={ListApi} />
 					<Route component={NotFound} />
 				</Switch>
 			</Router>
