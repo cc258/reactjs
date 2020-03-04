@@ -7,16 +7,20 @@ import { IntlProvider } from 'react-intl'
 import messages from '../lang/en'
 
 import Routers from './routers'
+import store from './store'
 
 import './assets/app.scss'
 
-const store = {}
 class App extends React.Component {
 	render() {
 		return (
-			<Suspense fallback={<div />}>
-				<Routers />
-			</Suspense>
+			<Provider store={store}>
+				<IntlProvider locale="en" messages={messages}>
+					<Suspense fallback={<div />}>
+						<Routers />
+					</Suspense>
+				</IntlProvider>
+			</Provider>
 		)
 	}
 }

@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // https://juejin.im/post/5d594ea5518825041301bbcb
 
-export default function Demo(props: any) {
+export default function SimpleMemo(props: any) {
 	const [stars, setStars] = useState(0)
 	const [widgetData, setWidgetData] = useState()
 

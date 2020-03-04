@@ -4,7 +4,7 @@ import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from './pages/home/home'
-import Memo from './pages/memo/memo'
+import SimpleMemo from './pages/simple-memo/simple-memo'
 import ListApi from './pages/list-api/list-api'
 import NotFound from './pages/not-found/not-found'
 class Routers extends React.Component {
@@ -26,7 +26,7 @@ class Routers extends React.Component {
 				</nav>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/memo" component={Memo} />
+					<Route exact path="/simple-memo" component={SimpleMemo} />
 					<Route exact path="/listapi" component={ListApi} />
 					<Route component={NotFound} />
 				</Switch>
