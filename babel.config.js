@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
 
   const presets = [
@@ -6,6 +6,7 @@ module.exports = function(api) {
       "@babel/preset-env",
       {
         targets: {
+          node: "current",
           browsers: [
             "last 2 versions",
             "> 0.2%",

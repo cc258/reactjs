@@ -4,6 +4,7 @@ import { hot, setConfig } from 'react-hot-loader'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from './pages/home/home'
+import LifeCycle from './pages/lifecycle/lifecycle'
 import SimpleTest from './pages/simple-test/simple-test'
 import SimpleMemo from './pages/simple-memo/simple-memo'
 import ListApi from './pages/list-api/list-api'
@@ -18,6 +19,9 @@ class Routers extends React.Component {
 							<Link to="/">Home</Link>
 						</li>
 						<li>
+							<Link to="/lifecycle">Lifecycle</Link>
+						</li>
+						<li>
 							<Link to="/memo">Memo</Link>
 						</li>
 						<li>
@@ -30,6 +34,7 @@ class Routers extends React.Component {
 				</nav>
 				<Switch>
 					<Route exact path="/" component={Home} />
+					<Route exact path="/lifecycle" component={LifeCycle} />
 					<Route exact path="/simple-test" component={SimpleTest} />
 					<Route exact path="/simple-memo" component={SimpleMemo} />
 					<Route exact path="/listapi" component={ListApi} />
