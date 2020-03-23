@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface SimpleTestProps {
-	children: any
+	children?: any
 }
 
 // NOTE: React Testing Library works with React Hooks _and_ classes just as well

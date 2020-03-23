@@ -1,8 +1,7 @@
-import '@testing-library/jest-dom'
-
 import React from 'react'
+
 import { render, fireEvent, screen } from '@testing-library/react'
-import SimpleTest from '../simple-test'
+import SimpleTest from '../index'
 
 test('shows the children when the checkbox is checked', () => {
 	const testMessage = 'Test Message'
