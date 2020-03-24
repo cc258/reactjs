@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 import Home from './pages/home/home'
 import LifeCycle from './pages/lifecycle/lifecycle'
-import SimpleTest from './pages/simple-test/simple-test'
+import SimpleTest from './pages/simple-test/loginForm'
 import SimpleMemo from './pages/simple-memo/simple-memo'
 import ListApi from './pages/list-api/list-api'
 import NotFound from './pages/not-found/not-found'
