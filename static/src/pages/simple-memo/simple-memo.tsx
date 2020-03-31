@@ -1,4 +1,11 @@
-import React, { memo, useState, useEffect, useContext, useReducer } from 'react'
+import React, {
+	memo,
+	useState,
+	useEffect,
+	useCallback,
+	useContext,
+	useReducer,
+} from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
@@ -13,17 +20,15 @@ interface SimpleStates {
 }
 
 // 几种定义function component的方式
-// export default function SimpleMemo(props: SimpleProps) {
-// export const SimpleMemo: React.FC<SimpleProps> = () => {
-// export const SimpleMemo: React.FC<SimpleProps> = props => {
-// export const SimpleMemo: React.FC<SimpleProps> = ({name, age}) => {
-export const SimpleMemo: React.FC<SimpleProps> = ({
-	name = 'leo',
-	age = 18,
-}) => {
-	const [stars, setStars] = useState(0)
-	const [widgetData, setWidgetData] = useState({})
+// function Simple(props: SimpleProps) {
+// const Simple: React.FC<SimpleProps> = () => {
+// const Simple: React.FC<SimpleProps> = props => {
+// const Simple: React.FC<SimpleProps> = ({name, age}) => {
+const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
+	const [stars, setStars] = useState<number>(0)
+	const [widgetData, setWidgetData] = useState<any>([])
 
+	// 每次re-render都会创建一次。
 	function onStars() {
 		setStars(stars + 10)
 	}
@@ -35,19 +40,33 @@ export const SimpleMemo: React.FC<SimpleProps> = ({
 					id: 12345,
 				},
 			})
-			.then((res: Object) => {
+			.then(res => {
 				setWidgetData(res)
 			})
 	}
 
+	// useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
+
+	const getWidgetData_cb = useCallback(() => {
+		fetch('https://api.github.com/users')
+			.then(res => res.json())
+			.then(data => {
+				setWidgetData(data)
+			})
+	}, [])
+
 	useEffect(() => {
-		getWidgetData()
+		getWidgetData_cb()
 	}, [])
 
 	return (
 		<section className="pages">
 			<h1 onClick={onStars}>counts {stars} stars</h1>
-			<h3>widgetData: {JSON.stringify(widgetData, null, 4)}</h3>
+			<ul className="memo-list">
+				{widgetData.map((item: any, key: string) => {
+					return <li>{item.login}</li>
+				})}
+			</ul>
 			<MemoChildOne />
 			<MemoChildTwo />
 		</section>
@@ -66,6 +85,6 @@ const ChildTwo = () => {
 
 const MemoChildOne = memo(ChildOne)
 const MemoChildTwo = memo(ChildTwo)
-const MemoSimpleMemo = memo(SimpleMemo)
+const SimpleMemo = memo(Simple)
 
-export default MemoSimpleMemo
+export default SimpleMemo

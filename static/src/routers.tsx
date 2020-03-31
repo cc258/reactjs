@@ -22,7 +22,7 @@ class Routers extends React.Component {
 							<Link to="/lifecycle">Lifecycle</Link>
 						</li>
 						<li>
-							<Link to="/memo">Memo</Link>
+							<Link to="/simple-memo">simple memo</Link>
 						</li>
 						<li>
 							<Link to="/simple-test">simple test</Link>
