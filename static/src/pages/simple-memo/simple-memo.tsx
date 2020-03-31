@@ -2,11 +2,27 @@ import React, { memo, useState, useEffect, useContext, useReducer } from 'react'
 // import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
-// https://juejin.im/post/5d594ea5518825041301bbcb
+interface SimpleProps {
+	name?: string
+	age?: number
+}
 
-export default function SimpleMemo(props: any) {
+interface SimpleStates {
+	stars?: number
+	widgetData?: any
+}
+
+// 几种定义function component的方式
+// export default function SimpleMemo(props: SimpleProps) {
+// export const SimpleMemo: React.FC<SimpleProps> = () => {
+// export const SimpleMemo: React.FC<SimpleProps> = props => {
+// export const SimpleMemo: React.FC<SimpleProps> = ({name, age}) => {
+export const SimpleMemo: React.FC<SimpleProps> = ({
+	name = 'leo',
+	age = 18,
+}) => {
 	const [stars, setStars] = useState(0)
-	const [widgetData, setWidgetData] = useState()
+	const [widgetData, setWidgetData] = useState({})
 
 	function onStars() {
 		setStars(stars + 10)
@@ -19,7 +35,7 @@ export default function SimpleMemo(props: any) {
 					id: 12345,
 				},
 			})
-			.then(res => {
+			.then((res: Object) => {
 				setWidgetData(res)
 			})
 	}
@@ -50,3 +66,6 @@ const ChildTwo = () => {
 
 const MemoChildOne = memo(ChildOne)
 const MemoChildTwo = memo(ChildTwo)
+const MemoSimpleMemo = memo(SimpleMemo)
+
+export default MemoSimpleMemo
