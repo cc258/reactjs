@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 interface LifeCycleProps {
 	name?: string
 }
 interface LifeCycleStates {
 	number?: number
-	users?: any[]
+	users?: Array<any>
 }
 
 export default class LifeCycle extends Component<
@@ -24,11 +25,7 @@ export default class LifeCycle extends Component<
 	//一般是在componentDidMount执行副作用，进行异步操作
 	componentDidMount() {
 		console.log('3. componentDidMount 组件挂载完成')
-		fetch('https://api.github.com/users')
-			.then(res => res.json())
-			.then(users => {
-				this.setState({ users })
-			})
+		this.getUsers()
 	}
 	shouldComponentUpdate(nextProps: LifeCycleProps, nextState: LifeCycleStates) {
 		console.log('Counter', nextProps, nextState)
@@ -44,8 +41,15 @@ export default class LifeCycle extends Component<
 	add = () => {
 		this.setState({ number: this.state.number })
 	}
+
+	getUsers = () => {
+		return axios.get('https://api.github.com/users').then((res) => {
+			console.log('+++++++++++++++++++++++++++', res)
+			this.setState({ users: res.data })
+		})
+	}
 	render() {
-		console.log('2.render渲染，也就是挂载')
+		console.log('2.render渲染，也就是挂载++++++++++++++++++', this.state)
 		return (
 			<div style={{ border: '5px solid red', padding: '5px' }}>
 				<p>
@@ -53,7 +57,7 @@ export default class LifeCycle extends Component<
 				</p>
 				<button onClick={this.add}>+</button>
 				<ul>
-					{this.state.users.map(user => (
+					{this.state.users.map((user) => (
 						<li>{user.login}</li>
 					))}
 				</ul>
@@ -70,7 +74,7 @@ interface SubCounterTypes {
 }
 
 class SubCounter extends Component<SubCounterTypes, SubCounterTypes> {
-	constructor(props: SubCounterProps) {
+	constructor(props: SubCounterTypes) {
 		super(props)
 		this.state = { number: 0 }
 	}

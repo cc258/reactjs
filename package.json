@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest",
+		"test": "jest --coverage",
 		"test:watch": "jest --watch",
-		"test:coverage": "jest --coverage",
+		"coverage": "open ./coverage/lcov-report/index.html",
 		"build": "webpack --config ./build/webpack.prod.js",
 		"build:dll": "webpack --config ./build/webpack.dll.js",
 		"start:webpack": "webpack-dev-server --color --config ./build/webpack.dev.js",
