@@ -8,4 +8,5 @@ eclipse/
 dist/
 tmp/
 node_modules
+coverage
 package-lock.json
