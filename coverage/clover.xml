@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587913483370" clover="3.2.0">
-  <project timestamp="1587913483371" name="All files">
-    <metrics statements="54" coveredstatements="43" conditionals="4" coveredconditionals="2" methods="20" coveredmethods="14" elements="78" coveredelements="59" complexity="0" loc="54" ncloc="54" packages="2" files="2" classes="2"/>
+<coverage generated="1588178925689" clover="3.2.0">
+  <project timestamp="1588178925689" name="All files">
+    <metrics statements="58" coveredstatements="36" conditionals="4" coveredconditionals="2" methods="22" coveredmethods="9" elements="84" coveredelements="47" complexity="0" loc="58" ncloc="58" packages="2" files="2" classes="2"/>
     <package name="lifecycle">
-      <metrics statements="33" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="15" coveredmethods="9"/>
+      <metrics statements="37" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="17" coveredmethods="4"/>
       <file name="lifecycle.tsx" path="/Users/mac/Documents/github/reactjs/static/src/pages/lifecycle/lifecycle.tsx">
-        <metrics statements="33" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="15" coveredmethods="9"/>
+        <metrics statements="37" coveredstatements="15" conditionals="4" coveredconditionals="2" methods="17" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="101" count="0" type="stmt"/>
-        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
       </file>
     </package>
     <package name="simple-test">

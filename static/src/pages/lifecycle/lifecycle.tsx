@@ -7,6 +7,7 @@ interface LifeCycleProps {
 interface LifeCycleStates {
 	number?: number
 	users?: Array<any>
+	api?: Array<any>
 }
 
 export default class LifeCycle extends Component<
@@ -48,6 +49,13 @@ export default class LifeCycle extends Component<
 			this.setState({ users: res.data })
 		})
 	}
+
+	getApi = () => {
+		return axios.get('/users/12345').then((res) => {
+			console.log('+++++++++++++++++++++++++++', res)
+			this.setState({ api: res.data })
+		})
+	}
 	render() {
 		console.log('2.render渲染，也就是挂载++++++++++++++++++', this.state)
 		return (
@@ -64,6 +72,8 @@ export default class LifeCycle extends Component<
 				{this.state.number % 2 == 0 && (
 					<SubCounter number={this.state.number} />
 				)}
+
+				<button onClick={this.getApi} />
 			</div>
 		)
 	}
