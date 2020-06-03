@@ -69,13 +69,14 @@ h1 {
 	box-sizing: border-box;
 	width: 100%;
 	padding: 80px;
+	background-size: cover;
 }
 
 /* page Home */
 .home {
 	font-size: 30px;
 	display: block;
-	background: url(../assets/images/home.png);
+	background-image: url(../assets/images/home.png);
 }
 
 .memo-list {
