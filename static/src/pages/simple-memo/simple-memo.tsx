@@ -40,7 +40,7 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 					id: 12345,
 				},
 			})
-			.then(res => {
+			.then((res) => {
 				setWidgetData(res)
 			})
 	}
@@ -49,8 +49,8 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 
 	const getWidgetData_cb = useCallback(() => {
 		fetch('https://api.github.com/users')
-			.then(res => res.json())
-			.then(data => {
+			.then((res) => res.json())
+			.then((data) => {
 				setWidgetData(data)
 			})
 	}, [])

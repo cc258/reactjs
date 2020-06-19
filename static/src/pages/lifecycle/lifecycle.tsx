@@ -22,6 +22,7 @@ export default class LifeCycle extends Component<
 		this.state = { number: 0, users: [] }
 		console.log('1. constructor 初始化 props and state')
 	}
+	static getDerivedStateFromProps() {}
 	//componentDidMount在渲染过程中永远只有执行一次
 	//一般是在componentDidMount执行副作用，进行异步操作
 	componentDidMount() {
@@ -103,7 +104,7 @@ class SubCounter extends Component<SubCounterTypes, SubCounterTypes> {
 			return false
 		}
 	}
-	//componentWillReceiveProp 组件收到新的属性对象
+	//UNSAFE componentWillReceiveProp 组件收到新的属性对象
 	componentWillReceiveProps() {
 		console.log('SubCounter 1.componentWillReceiveProps')
 	}
