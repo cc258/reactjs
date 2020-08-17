@@ -23,6 +23,7 @@ export default class LifeCycle extends Component<
 		console.log('1. constructor 初始化 props and state')
 	}
 	static getDerivedStateFromProps() {}
+
 	//componentDidMount在渲染过程中永远只有执行一次
 	//一般是在componentDidMount执行副作用，进行异步操作
 	componentDidMount() {
