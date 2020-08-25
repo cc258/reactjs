@@ -6,7 +6,7 @@ import {
 	cleanup,
 } from '@testing-library/react'
 
-import LoginForm, { Props } from '../LoginForm'
+import SimpleTest, { Props } from '../simple-test'
 
 afterEach(cleanup)
 
@@ -26,7 +26,7 @@ function renderLoginForm(props: Partial<Props> = {}) {
 		},
 		shouldRemember: true,
 	}
-	return render(<LoginForm {...defaultProps} {...props} />)
+	return render(<SimpleTest {...defaultProps} {...props} />)
 }
 
 describe('<LoginForm />', () => {
