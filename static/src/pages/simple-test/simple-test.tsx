@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 export interface Props {
 	shouldRemember: boolean
@@ -74,4 +74,6 @@ function LoginForm(props: Props) {
 	)
 }
 
-export default LoginForm
+const SimpleTest = memo(LoginForm)
+
+export default SimpleTest

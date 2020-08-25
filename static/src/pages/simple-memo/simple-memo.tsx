@@ -85,6 +85,7 @@ const ChildTwo = () => {
 
 const MemoChildOne = memo(ChildOne)
 const MemoChildTwo = memo(ChildTwo)
+
 const SimpleMemo = memo(Simple)
 
 export default SimpleMemo
