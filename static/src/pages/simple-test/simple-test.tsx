@@ -37,40 +37,42 @@ function LoginForm(props: Props) {
 	}
 
 	return (
-		<form data-testid="login-form" onSubmit={handleSubmit}>
-			<label htmlFor="username">Username:</label>
-			<input
-				data-testid="username"
-				type="text"
-				name="username"
-				value={username}
-				onChange={handleUsernameChange}
-			/>
-
-			<label htmlFor="password">Password:</label>
-			<input
-				data-testid="password"
-				type="password"
-				name="password"
-				value={password}
-				onChange={handlePasswordChange}
-			/>
-
-			<label>
+		<section className="pages">
+			<form data-testid="login-form" onSubmit={handleSubmit}>
+				<label htmlFor="username">Username:</label>
 				<input
-					data-testid="remember"
-					name="remember"
-					type="checkbox"
-					checked={remember}
-					onChange={handleRememberChange}
+					data-testid="username"
+					type="text"
+					name="username"
+					value={username}
+					onChange={handleUsernameChange}
 				/>
-				Remember me?
-			</label>
 
-			<button type="submit" data-testid="submit">
-				Sign in
-			</button>
-		</form>
+				<label htmlFor="password">Password:</label>
+				<input
+					data-testid="password"
+					type="password"
+					name="password"
+					value={password}
+					onChange={handlePasswordChange}
+				/>
+
+				<label>
+					<input
+						data-testid="remember"
+						name="remember"
+						type="checkbox"
+						checked={remember}
+						onChange={handleRememberChange}
+					/>
+					Remember me?
+				</label>
+
+				<button type="submit" data-testid="submit">
+					Sign in
+				</button>
+			</form>
+		</section>
 	)
 }
 
