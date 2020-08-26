@@ -1,6 +1,7 @@
 import React, { lazy } from 'react'
 
 const Home = lazy(() => import('../src/pages/home/home'))
+const Es = lazy(() => import('../src/pages/es/es'))
 const LifeCycle = lazy(() => import('../src/pages/lifecycle/lifecycle'))
 const SimpleTest = lazy(() => import('../src/pages/simple-test/simple-test'))
 const SimpleMemo = lazy(() => import('../src/pages/simple-memo/simple-memo'))
@@ -15,16 +16,16 @@ const routes = [
 		title: 'Home',
 	},
 	{
+		path: '/es',
+		component: Es,
+		exact: true,
+		title: 'es',
+	},
+	{
 		path: '/lifecycle',
 		component: LifeCycle,
 		exact: true,
 		title: 'Life',
-	},
-	{
-		path: '/simple-test',
-		component: SimpleTest,
-		exact: true,
-		title: 'Test',
 	},
 	{
 		path: '/simple-memo',
@@ -37,6 +38,12 @@ const routes = [
 		component: ListApi,
 		exact: true,
 		title: 'ListApi',
+	},
+	{
+		path: '/simple-test',
+		component: SimpleTest,
+		exact: true,
+		title: 'Test',
 	},
 	{
 		component: NotFound,
