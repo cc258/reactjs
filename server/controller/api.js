@@ -5,6 +5,12 @@ module.exports = class Api {
     ctx.body = { lastResetTime: 1571372840000 };
   }
 
+  static async uploadFile(ctx) {
+    console.log(ctx.request.files);
+    console.log(ctx.request.body);
+    ctx.body = JSON.stringify(ctx.request.files);
+  }
+
   static async getWidget(ctx) {
     ctx.body = {
       data: {

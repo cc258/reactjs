@@ -3,8 +3,10 @@ const path = require("path");
 const Koa = require("koa");
 const cors = require("koa2-cors");
 const static = require("koa-static");
+const koaBody = require('koa-body');
 const bodyParser = require("koa-bodyparser");
 const koaNunjucks = require("koa-nunjucks-2");
+const routers = require("./router");
 
 const app = new Koa();
 
@@ -32,6 +34,20 @@ app.use(
   })
 );
 
+// app.use(koaBody({
+//   multipart: true, // 支持文件上传
+//   encoding: 'gzip',
+//   formidable: {
+//     uploadDir: path.join(__dirname, '../public/upload/'), // 设置文件上传目录
+//     keepExtensions: true,    // 保持文件的后缀
+//     maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小
+//     onFileBegin: (name, file) => { // 文件上传前的设置
+//       // console.log(`name: ${name}`);
+//       // console.log(file);
+//     },
+//   }
+// }));
+
 // ext (default: 'njk'): Extension that will be automatically appended to the file name in ctx.render calls. Set to a falsy value to disable.
 // path (default: current directory): Path to the templates. Also supports passing an array of paths.
 // writeResponse (default: true): If true, writes the rendered output to response.body.
@@ -56,7 +72,7 @@ wss.on("connection", function connection(ws, req) {
   });
 });
 
-app.use(require("./router").routes());
+app.use(routers.routes());
 app.listen(port);
 console.log(
   "\033[45;30m DONE \033[40;32m http://localhost:" + port + "/ \033[0m"

@@ -1,24 +1,24 @@
-version: "3"
+version: '3'
 services:
   mongo:
     image: mongo
     restart: always
     ports:
-      - "27017:27017"
+      - '27017:27017'
 
   react:
     build: .
     command: npm run start:react
     ports:
-      - "8080:8080"
-      - "8081:8081"
+      - '8080:8080'
+      - '8081:8081'
     # restart: always
 
   koa:
     build: .
-    command: npm run start:server
+    command: npm run start:node
     depends_on:
       - react
       - mongo
     ports:
-      - "8090:8090"
+      - '8090:8090'
