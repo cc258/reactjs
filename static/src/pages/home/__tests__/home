@@ -1,0 +1,18 @@
+import React from 'react'
+import { render, cleanup } from '@testing-library/react'
+import Home, { HomeProps } from '../home'
+
+beforeEach(cleanup)
+afterEach(cleanup)
+
+const renderHome = () => {
+	return render(<Home hello="123" />)
+}
+
+describe('<Home />', () => {
+	test('should render home', async () => {
+		const { findByTestId } = renderHome()
+
+		expect(findByTestId('home').exisit()).toBe(true)
+	})
+})

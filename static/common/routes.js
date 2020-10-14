@@ -1,6 +1,7 @@
 import React, { lazy } from 'react'
 
 const Home = lazy(() => import('../src/pages/home/home'))
+const Table = lazy(() => import('../src/pages/table/table'))
 const Es = lazy(() => import('../src/pages/es/es'))
 const LifeCycle = lazy(() => import('../src/pages/lifecycle/lifecycle'))
 const SimpleTest = lazy(() => import('../src/pages/simple-test/simple-test'))
@@ -14,6 +15,12 @@ const routes = [
 		component: Home,
 		exact: true,
 		title: 'Home',
+	},
+	{
+		path: '/table',
+		component: Table,
+		exact: true,
+		title: 'Table',
 	},
 	{
 		path: '/es',
