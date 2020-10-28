@@ -5,6 +5,11 @@ module.exports = class Api {
     ctx.body = { lastResetTime: 1571372840000 };
   }
 
+  static async updataFiles(ctx) {
+    const fileList = ctx.request.body;
+    ctx.body = { message: 'ok' };
+  }
+
   static async getWidget(ctx) {
     ctx.body = {
       data: {

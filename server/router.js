@@ -15,5 +15,6 @@ module.exports = router
   .post("/api/star/add", Api.starAdd)
   .post("/api/star/update", Api.starUpdate)
   .post("/api/star/del", Api.starDelete)
+  .post("/updataFiles", Api.updataFiles)
 
   .get("*", Home.index);
