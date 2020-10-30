@@ -1,7 +1,10 @@
-import React, { memo, useState, useEffect, Children } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import { useIntl } from 'react-intl'
 import { useSelector, useDispatch } from 'react-redux'
-import { HomeProps } from '.'
+
+export interface HomeProps {
+	hello?: string
+}
 
 const Home: React.FC<HomeProps> = () => {
 	// const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-const Star = require("../models/star");
+const Star = require('../models/star');
 
 module.exports = class Api {
   static async getData(ctx) {
@@ -15,86 +15,86 @@ module.exports = class Api {
       data: {
         vehiclePerCountry: {
           data: [
-            { country: "ABW", count_status: 10, activation: 123 },
+            { country: 'ABW', count_status: 10, activation: 123 },
             {
-              country: "Afghanistan",
+              country: 'Afghanistan',
               count_status: 23123,
-              activation: 1234567
+              activation: 1234567,
             },
-            { country: "AGO", count_status: 0, activation: 12 },
-            { country: "ALB", count_status: 0 },
-            { country: "AND", count_status: 0 },
-            { country: "Angola", count_status: 0 },
-            { country: "ARG", count_status: 0 },
-            { country: "ARM", count_status: 0 },
-            { country: "Armenia", count_status: 0 },
-            { country: "ASM", count_status: 0 },
-            { country: "ATA", count_status: 0 },
-            { country: "AUS", count_status: 4, status: "0" },
-            { country: "Australia", count_status: 0 },
-            { country: "BEL", count_status: 0 },
-            { country: "BOL", count_status: 0 },
-            { country: "Bolivia, Plurinational State of", count_status: 0 },
-            { country: "CHE", count_status: 0 },
-            { country: "China", count_status: 0 },
-            { country: "CHN", count_status: 4, status: "0" },
-            { country: "CHN", count_status: 0 },
-            { country: "CMR", count_status: 0 },
-            { country: "CUW", count_status: 0 },
-            { country: "CYP", count_status: 0 },
-            { country: "IND", count_status: 4, status: "0" },
-            { country: "Israel", count_status: 0 },
-            { country: "JPN", count_status: 4, status: "0" },
-            { country: "JPN", count_status: 2, status: "102" },
-            { country: "SWE", count_status: 12, status: "0" },
-            { country: "Switzerland", count_status: 0 },
-            { country: "Unspecified", count_status: 2, status: "101" },
-            { country: "Unspecified", count_status: 2, status: "0" },
-            { country: "Unspecified", count_status: 2, status: "102" },
-            { country: "USA", count_status: 6, status: "0" }
+            { country: 'AGO', count_status: 0, activation: 12 },
+            { country: 'ALB', count_status: 0 },
+            { country: 'AND', count_status: 0 },
+            { country: 'Angola', count_status: 0 },
+            { country: 'ARG', count_status: 0 },
+            { country: 'ARM', count_status: 0 },
+            { country: 'Armenia', count_status: 0 },
+            { country: 'ASM', count_status: 0 },
+            { country: 'ATA', count_status: 0 },
+            { country: 'AUS', count_status: 4, status: '0' },
+            { country: 'Australia', count_status: 0 },
+            { country: 'BEL', count_status: 0 },
+            { country: 'BOL', count_status: 0 },
+            { country: 'Bolivia, Plurinational State of', count_status: 0 },
+            { country: 'CHE', count_status: 0 },
+            { country: 'China', count_status: 0 },
+            { country: 'CHN', count_status: 4, status: '0' },
+            { country: 'CHN', count_status: 0 },
+            { country: 'CMR', count_status: 0 },
+            { country: 'CUW', count_status: 0 },
+            { country: 'CYP', count_status: 0 },
+            { country: 'IND', count_status: 4, status: '0' },
+            { country: 'Israel', count_status: 0 },
+            { country: 'JPN', count_status: 4, status: '0' },
+            { country: 'JPN', count_status: 2, status: '102' },
+            { country: 'SWE', count_status: 12, status: '0' },
+            { country: 'Switzerland', count_status: 0 },
+            { country: 'Unspecified', count_status: 2, status: '101' },
+            { country: 'Unspecified', count_status: 2, status: '0' },
+            { country: 'Unspecified', count_status: 2, status: '102' },
+            { country: 'USA', count_status: 6, status: '0' },
           ],
           cols: [
             {
-              name: "Country",
-              key: "country",
+              name: 'Country',
+              key: 'country',
               definition: {
-                key: "country",
-                display_name: "Country",
-                data_type: "string",
+                key: 'country',
+                display_name: 'Country',
+                data_type: 'string',
                 data_unit: null,
                 data_format: null,
                 display_format: null,
                 business_type: null,
-                business_unit: null
-              }
+                business_unit: null,
+              },
             },
             {
-              name: "Total",
-              key: "count_status",
+              name: 'Total',
+              key: 'count_status',
               definition: {
                 attributes: {
-                  field_order: 1
+                  field_order: 1,
                 },
-                key: "count_status",
-                display_name: "count_status",
-                data_type: "number",
+                key: 'count_status',
+                display_name: 'count_status',
+                data_type: 'number',
                 data_unit: null,
                 data_format: null,
                 display_format: null,
                 business_type: null,
-                business_unit: "count_status"
-              }
-            }
+                business_unit: 'count_status',
+              },
+            },
           ],
           activation: {
-            display_name: "activation",
-            key: "activation"
+            display_name: 'activation',
+            key: 'activation',
           },
-          unit: "vehicles"
-        }
+          unit: 'vehicles',
+        },
       },
-      errCode: "ok",
-      errMessage: ""
+      errCode: 'ok',
+      errMessage: '',
     };
   }
 
@@ -111,7 +111,7 @@ module.exports = class Api {
         console.log(`save success! ${res}`);
       }
     });
-    ctx.body = "";
+    ctx.body = '';
   }
 
   static async starUpdate(ctx) {
@@ -123,7 +123,7 @@ module.exports = class Api {
         console.log(`update success! ${res}`);
       }
     });
-    ctx.body = "";
+    ctx.body = '';
   }
 
   static async starDelete(ctx) {
@@ -135,6 +135,6 @@ module.exports = class Api {
         console.log(`delete success! ${res}`);
       }
     });
-    ctx.body = "";
+    ctx.body = '';
   }
 };
