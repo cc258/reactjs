@@ -12,8 +12,8 @@ const Home: React.FC<HomeProps> = () => {
 	const { formatMessage: f } = useIntl()
 
 	return (
-		<div className="pages home" data-testid="home" id="home">
-			<h1>{f({ id: 'qqqqqqqqqqqqqqqqqqqqqq' })}123</h1>
+		<div className="pages home" role="home" id="home">
+			<h1>{f({ id: 'hello' })}</h1>
 			<h1>In the end, </h1>
 			<h2>everything will have a happy ending. </h2>
 			<h3>If it's not happy, </h3>

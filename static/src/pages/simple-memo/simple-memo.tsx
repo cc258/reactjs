@@ -6,7 +6,8 @@ import React, {
 	useContext,
 	useReducer,
 } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
+import { useIntl } from 'react-intl'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 
 interface SimpleProps {
@@ -27,6 +28,7 @@ interface SimpleStates {
 const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 	const [stars, setStars] = useState<number>(0)
 	const [widgetData, setWidgetData] = useState<any>([])
+	const { formatMessage: f } = useIntl()
 
 	// 每次re-render都会创建一次。
 	function onStars() {
@@ -47,13 +49,19 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 
 	// useCallback(fn, deps) 相当于 useMemo(() => fn, deps)
 
-	const getWidgetData_cb = useCallback(() => {
-		fetch('https://api.github.com/users')
-			.then((res) => res.json())
-			.then((data) => {
-				setWidgetData(data)
+	const getWidgetData_cb = () => {
+		axios.get('https://api.github.com/users')
+			.then((res) => {
+				if(res && res.data){
+					setWidgetData(res.data)
+				}
 			})
-	}, [])
+		// fetch('https://api.github.com/users')
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		setWidgetData(data)
+		// 	})
+	}
 
 	useEffect(() => {
 		getWidgetData_cb()
@@ -61,10 +69,11 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 
 	return (
 		<section className="pages">
-			<h1 onClick={onStars}>counts {stars} stars</h1>
+			<h1 role="hello">{f({ id: 'hello' })}</h1>
+			<h1 role="countStars" onClick={onStars}>{stars}</h1>
 			<ul className="memo-list">
-				{widgetData.map((item: any, key: string) => {
-					return <li>{item.login}</li>
+				{widgetData && widgetData.map((item: any, key: string) => {
+					return <li key={key}>{item.login}</li>
 				})}
 			</ul>
 			<MemoChildOne />
