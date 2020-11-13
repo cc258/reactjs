@@ -28,10 +28,15 @@ describe('<SimpleMemo />', () => {
 
     // 测试函数
     const countStars = screen.getByRole('countStars');
+    const child1 = screen.getByRole('child-1');
+
     expect(countStars).toBeInTheDocument();
     fireEvent.click(countStars);
 
     expect(countStars).toHaveTextContent('10');
+
+    screen.debug(countStars);
+    screen.debug(child1);
 
     // 测试页面请求
     expect(axios.get).toBeCalled();
