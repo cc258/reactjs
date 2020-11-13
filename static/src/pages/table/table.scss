@@ -1,76 +1,73 @@
 .table-box {
-    margin: 100px auto;
-    width: 1024px;
+  margin: 100px auto;
+  width: 1024px;
 }
 
 /* 滚动条宽度 */
 ::-webkit-scrollbar {
-    width: 8px;
-    background-color: transparent;
+  width: 8px;
+  background-color: transparent;
 }
 
 /* 滚动条颜色 */
 ::-webkit-scrollbar-thumb {
-    background-color: #27314d;
+  background-color: #27314d;
 }
 
-
 table {
-    width: 100%;
+  width: 100%;
 }
 
 table caption {
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 50px;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
 }
 
 table col:nth-child(2n) {
-    width: 30%;
+  width: 30%;
 }
 
 table th,
 table td {
-    height: 50px;
-    text-align: center;
-    border: 1px solid gray;
-    overflow: hidden;
+  height: 50px;
+  text-align: center;
+  border: 1px solid gray;
+  overflow: hidden;
 }
 
 table thead {
-    color: white;
-    background-color: #38F;
+  color: white;
+  background-color: #38f;
 }
 
 table tbody {
-    display: block;
-    width: calc(100% + 8px);
-    /*这里的8px是滚动条的宽度*/
-    height: 300px;
-    overflow-y: auto;
+  display: block;
+  width: calc(100% + 8px);
+  /*这里的8px是滚动条的宽度*/
+  height: 300px;
+  overflow-y: auto;
 }
 
 table tfoot {
-    background-color: #71ea71;
+  background-color: #71ea71;
 }
 
-table thead tr,
-table tbody tr,
-table tfoot tr {
-    box-sizing: border-box;
-    table-layout: fixed;
-    display: table;
-    width: 100%;
+table tr {
+  box-sizing: border-box;
+  table-layout: fixed;
+  display: table;
+  width: 100%;
 }
 
 table tbody tr:nth-of-type(odd) {
-    background: #EEE;
+  background: #eee;
 }
 
 table tbody tr:nth-of-type(even) {
-    background: #FFF;
+  background: #fff;
 }
 
 table tbody tr td {
-    border-bottom: none;
+  border-bottom: none;
 }

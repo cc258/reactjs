@@ -5,6 +5,7 @@ import React, {
 	useCallback,
 	useContext,
 	useReducer,
+	useRef,
 } from 'react'
 import { useIntl } from 'react-intl'
 import { useSelector, useDispatch } from 'react-redux'
@@ -76,6 +77,7 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 					return <li key={key}>{item.login}</li>
 				})}
 			</ul>
+			
 			<MemoChildOne />
 			<MemoChildTwo />
 		</section>
@@ -84,7 +86,19 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 
 const ChildOne = () => {
 	console.log('Child one rendering')
-	return <h2>Child One</h2>
+	const [height, setHeight] = useState(0);
+	const ref = useRef(null)
+
+	useEffect(() => {
+		setHeight(ref.current.clientHeight)
+	})
+
+	return (
+		<div ref={ref}>
+			<h2>Child One</h2>
+			{height}
+		</div>
+	)
 }
 
 const ChildTwo = () => {
