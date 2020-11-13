@@ -94,7 +94,7 @@ const ChildOne = () => {
 	})
 
 	return (
-		<div ref={ref}>
+		<div role="child-1" ref={ref}>
 			<h2>Child One</h2>
 			{height}
 		</div>
