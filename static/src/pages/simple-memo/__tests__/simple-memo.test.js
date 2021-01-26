@@ -35,8 +35,11 @@ describe('<SimpleMemo />', () => {
 
     expect(countStars).toHaveTextContent('10');
 
-    screen.debug(countStars);
-    screen.debug(child1);
+    const ul = screen.getByRole('ul');
+    screen.debug(ul);
+
+    const li = screen.getByRole('111');
+    expect(li).toBeInTheDocument();
 
     // 测试页面请求
     expect(axios.get).toBeCalled();

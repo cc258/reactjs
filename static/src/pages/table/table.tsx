@@ -12,11 +12,6 @@ const Table: React.FC<TableProps> = ({ name = 'leo', age = 18 }) => {
 		<section className="table-box">
 			<table cellpadding="0" cellspacing="0">
 				<caption>纯CSS table表格 thead固定 tbody滚动</caption>
-				<col style={{ width: 100 }} />
-				<col />
-				<col />
-				<col />
-				<col />
 
 				<thead>
 					<tr>

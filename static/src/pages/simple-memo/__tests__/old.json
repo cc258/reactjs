@@ -1,0 +1,35 @@
+{
+    "address": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+    "addresses": [
+        {
+            "formatted": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+            "locality": "Alice",
+            "postalCode": "In",
+            "region": "Wonderland",
+            "streetAddress": "Open Street"
+        }
+    ],
+    "costCenter": "",
+    "country": "China",
+    "displayName": "AUTORGUSR00000002",
+    "email": "autorgusr00000002@email.com",
+    "enterpriseId": "8a80921c7467b6a9017475e3305d0000",
+    "enterpriseName": "oemadmin",
+    "externalId": "",
+    "gender": "Male",
+    "id": "2ef69a30-13ee-4b7a-b70a-47b4bed47af1",
+    "insuranceRefNo": "",
+    "insuranceVendor": "",
+    "lastModified": "2021-01-15T07:25:07.211Z",
+    "licenseNo": "LP54819972",
+    "name": "autorgusr00000002",
+    "permitNo": "123",
+    "permitType": "",
+    "phone": "80760237617",
+    "status": "ACTIVE",
+    "urgentContactPerson": "",
+    "urgentContactPersonPhone": "",
+    "vehicles": [
+        "AUTORGVEH00000002"
+    ]
+}

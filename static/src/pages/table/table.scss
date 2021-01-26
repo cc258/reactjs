@@ -36,6 +36,11 @@ table td {
   overflow: hidden;
 }
 
+tr th:first-child,
+tr td:first-child {
+  width: 100px;
+}
+
 table thead {
   color: white;
   background-color: #38f;

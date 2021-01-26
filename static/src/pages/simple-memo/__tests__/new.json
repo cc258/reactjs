@@ -1,0 +1,142 @@
+{
+    "addresses": [
+        {
+            "city": "Stockholm",
+            "coordinate": "59.405060, 17.955240",
+            "country": {
+                "code": "BEL",
+                "name": "Belgium"
+            },
+            "district": "Bromma",
+            "fullAddress": "Telefonaktiebolaget LM Ericsson, Torshamnsgatan 21, 164 83, Stockholm",
+            "postalCode": "164 83",
+            "primary": true,
+            "region": "Kista",
+            "streetAddress": "Torshamnsgatan 21",
+            "type": "WORK"
+        }
+    ],
+    "dateOfBirth": "1990-01-01T00:00:00.000Z",
+    "driverInfo": {
+        "costCenter": {
+            "id": "87ef90b4-aed5-4409-9ac2-b80510960212",
+            "name": "A000"
+        },
+        "customizedAttributes": {
+            "usageAssignment": "BUSANDPRIV"
+        },
+        "insurance": {
+            "insuranceExpireDate": "2024-01-01T00:00:00.000Z",
+            "insuranceRefNo": 1,
+            "insuranceVendor": "Insurance Life Incorporated"
+        },
+        "status": "ACTIVE"
+    },
+    "certificates": [
+        {
+            "certificateNumber": "XXXX-XXXX-XXXX",
+            "certificateType": "PERSONAL_IDENTITY",
+            "expireDate": "2024-12-31T00:00:00.000Z",
+            "issueDate": "2020-01-01T00:00:00.000Z",
+            "issuer": "Transport Office of Sweden"
+        }
+    ],
+    "contacts": [
+        {
+            "address": "123 Main St, Anytown, USA",
+            "email": "JohnDoe@xxx.com",
+            "extension": [
+                {
+                    "phone-2": "000-000-00001"
+                }
+            ],
+            "fax": "+1 (xxx) xxx-xxxx",
+            "name": "John Doe",
+            "phone": "000-000-00000"
+        }
+    ],
+    "country": {
+        "code": "BEL",
+        "name": "Belgium"
+    },
+    "editable": true,
+    "emails": [
+        "john.doe@example.com",
+        "john.doe1@example.com"
+    ],
+    "externalRef": "ea571d01-4fd0-4a35-8123-8d51008217a6",
+    "gender": "Male",
+    "id": "3795238e-7bd3-44c9-a89d-8f8e651bbc2c",
+    "jobTitle": "Doctor",
+    "modifiedAt": "2020-01-01 00:00:00",
+    "name": {
+        "familyName": "Doe",
+        "fullName": "Mr. John Michael Peter Doe",
+        "givenName": "John",
+        "honorificPrefix": "Dr.",
+        "honorificSuffix": "Sama",
+        "localName": "王伟",
+        "middleName": "Peter",
+        "userName": "JOHNMPDOE1"
+    },
+    "registrationEmail": "john.doe2@example.com",
+    "registrationPhone": "000-000-00000",
+    "nationality": "Swedish",
+    "phones": [
+        {
+            "countryCallingCode": 64,
+            "name": "My primary mobile",
+            "number": "XXXX-XXXX",
+            "primary": true,
+            "type": "HOME"
+        }
+    ],
+    "photos": [
+        {
+            "path": "/cv-static/36612bb3-2743-4744-af92-e3b83debacb2/picture/c1998c1b-b326-4492-89d3-8f20119b37e7",
+            "primary": true,
+            "type": "USER"
+        }
+    ],
+    "status": "ACTIVE",
+    "tags": [
+        "Guangzhou",
+        "DXTReport"
+    ],
+    "vehicles": [
+        {
+            "relationship": "DRIVING",
+            "vehicleId": "ea571d01-4fd0-4a35-8123-8d51008217a6"
+        }
+    ],
+    "organizations": [
+        {
+            "relationship": "MANAGEMENT",
+            "customizedAttributes": {
+                "usageAssignment": "BUSANDPRIV"
+            },
+            "code": "AF-001",
+            "description": "This is OEM Ferrari.",
+            "externalRef": "153ec696-648f-4326-84b7-6350a4f593ff",
+            "fullPathId": "/BD-001/AF-001",
+            "id": "4b794356-804a-4ec0-8551-5d93f9500b5f",
+            "name": "fleet-1",
+            "parentId": "/BD-001",
+            "status": "ACTIVE",
+            "businessType": "TAXI",
+            "businessUnitType": "Department",
+            "type": "OEM"
+        }
+    ],
+    "userPreferences": [
+        {
+            "application": "portal/mobile_app_name",
+            "preference": {
+                "Pressure": "kPa",
+                "Temperature": "Celsius",
+                "NumberFormat": "Point(e.g. 10.50)",
+                "ThousandsSeparator": "Comma(e.g. 100,00)"
+            }
+        }
+    ]
+}
