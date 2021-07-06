@@ -10,6 +10,13 @@ const Home: React.FC<HomeProps> = () => {
 	// const dispatch = useDispatch()
 	// const props = useSelector((state: any) => state.home)
 	const { formatMessage: f } = useIntl()
+	const [text, setText] = useState('');
+
+	const changeText= (e:any) => {
+		const val = decodeURIComponent(e.target.value);
+		console.log(val)
+		setText(val);
+	}
 
 	return (
 		<div className="pages home" role="home" id="home">
@@ -18,8 +25,12 @@ const Home: React.FC<HomeProps> = () => {
 			<h2>everything will have a happy ending. </h2>
 			<h3>If it's not happy, </h3>
 			<h4>then it's not the end.</h4>
+			<h3>{text}</h3>
+			<textarea value={text} cols={20} wrap="hard" onChange={changeText} />
 		</div>
 	)
+
+
 }
 
 export default memo(Home)

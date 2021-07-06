@@ -1,6 +1,9 @@
 const Star = require('../models/star');
 
 module.exports = class Api {
+  static async getUsers(ctx) {
+    ctx.body = { "name": "cc", "id": "123" };
+  }
   static async getData(ctx) {
     ctx.body = { lastResetTime: 1571372840000 };
   }

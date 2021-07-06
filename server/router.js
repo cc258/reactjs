@@ -8,12 +8,12 @@ const Api = require('./controller/api');
 
 module.exports = routers
   .post('/api/v1/widget', Api.getWidget)
+  .get('/getUsers', Api.getUsers)
   .get('/api/getData', Api.getData)
-  .post('/api/uploadFile', koaBody(), Api.uploadFile)
   .get('/api/star', Api.allStar)
   .post('/api/star/add', Api.starAdd)
   .post('/api/star/update', Api.starUpdate)
   .post('/api/star/del', Api.starDelete)
-  .post('/updataFiles', Api.updataFiles)
+  .post('/updataFiles', koaBody(), Api.updataFiles)
 
-  .get('*', Home.index);
+  .get('/', Home.index);
