@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require("webpack-merge");
+const { merge } = require('webpack-merge');
 const commonConfig = require("./webpack.common.js");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
@@ -14,7 +14,9 @@ const devServerConfig = {
     path.resolve(__dirname, "../static/src/index.tsx")
   ],
   devServer: {
+    // 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要。
     contentBase: path.resolve(__dirname, "../static/dist"),
+    // 一切服务都启用gzip 压缩：
     compress: true,
     host: '0.0.0.0',
     port: 8080,
@@ -30,7 +32,7 @@ const devServerConfig = {
     },
 
     // 启用 noInfo 后，诸如「启动时和每次保存之后，那些显示的 webpack 包(bundle)信息」的消息将被隐藏。错误和警告仍然会显示。
-    noInfo: true,
+    noInfo: false,
     // watchOptions: {
     //   ignored: /node_modules/
     // },
@@ -38,7 +40,6 @@ const devServerConfig = {
   },
   plugins: [
     // 插件~
-    new webpack.NamedModulesPlugin(), //用于启动HMR时可以显示模块的相对路径
     new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
     new webpack.DefinePlugin({
       "process.env": {

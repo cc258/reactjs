@@ -1,5 +1,5 @@
 const messages = {
-	mm: 'Hello',
+	mm: 'Hello mm',
 	placeholder: 'Hello {name}',
 	date: 'Hello {ts, date}',
 	time: 'Hello {ts, time}',

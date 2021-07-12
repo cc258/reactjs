@@ -34,19 +34,19 @@ app.use(
   })
 );
 
-// app.use(koaBody({
-//   multipart: true, // 支持文件上传
-//   encoding: 'gzip',
-//   formidable: {
-//     uploadDir: path.join(__dirname, '../public/upload/'), // 设置文件上传目录
-//     keepExtensions: true,    // 保持文件的后缀
-//     maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小
-//     onFileBegin: (name, file) => { // 文件上传前的设置
-//       // console.log(`name: ${name}`);
-//       // console.log(file);
-//     },
-//   }
-// }));
+app.use(koaBody({
+  multipart: true, // 支持文件上传
+  encoding: 'gzip',
+  formidable: {
+    uploadDir: path.join(__dirname, '../public/upload/'), // 设置文件上传目录
+    keepExtensions: true,    // 保持文件的后缀
+    maxFieldsSize: 2 * 1024 * 1024, // 文件上传大小
+    onFileBegin: (name, file) => { // 文件上传前的设置
+      // console.log(`name: ${name}`);
+      // console.log(file);
+    },
+  }
+}));
 
 // ext (default: 'njk'): Extension that will be automatically appended to the file name in ctx.render calls. Set to a falsy value to disable.
 // path (default: current directory): Path to the templates. Also supports passing an array of paths.

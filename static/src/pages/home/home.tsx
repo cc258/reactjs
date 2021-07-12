@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = () => {
 	return (
 		<div className="pages home" role="home" id="home">
 			<h1>{f({ id: 'hello' })}</h1>
-			<h1>In the end, 123</h1>
+			<h1>In the end, abc 123321</h1>
 			<h2>everything will have a happy ending. </h2>
 			<h3>If it's not happy, </h3>
 			<h4>then it's not the end.</h4>
