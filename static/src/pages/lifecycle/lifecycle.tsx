@@ -9,6 +9,7 @@ interface LifeCycleStates {
   users?: Array<any>;
   api?: Array<any>;
 }
+//react 17 不推荐 componentWillMount, componentWillReceiveProps, componentWillUpdate
 
 export default class LifeCycle extends Component<LifeCycleProps, LifeCycleStates> {
   static defaultProps = {
@@ -31,9 +32,6 @@ export default class LifeCycle extends Component<LifeCycleProps, LifeCycleStates
     console.log('Counter', nextProps, nextState);
     console.log('4. shouldComponentUpdate 询问组件是否需要更新');
     return true;
-  }
-  componentWillUpdate(nextProps: LifeCycleProps, nextState: LifeCycleStates) {
-    console.log('5. componentWillUpdate 组件将要更新');
   }
   componentDidUpdate(prevProps: LifeCycleProps, prevState: LifeCycleStates) {
     console.log('6. componentDidUpdate 组件更新完毕');
@@ -96,10 +94,6 @@ class SubCounter extends Component<SubCounterTypes, SubCounterTypes> {
     } else {
       return false;
     }
-  }
-  //UNSAFE componentWillReceiveProp 组件收到新的属性对象
-  componentWillReceiveProps() {
-    console.log('SubCounter 1.componentWillReceiveProps');
   }
   render() {
     console.log('SubCounter  2.render');
