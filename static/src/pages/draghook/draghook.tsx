@@ -1,23 +1,59 @@
-import React, { FC, ReactElement, useEffect } from 'react';
+import React, { FC, ReactElement, useState, useEffect, useCallback } from 'react';
 import dragula from 'react-dragula';
 import './draghook.scss';
 
+
+
 const DragHook: FC = (props: any): ReactElement => {
+  const [container, setContainer] = useState<HTMLDivElement>();
+
+  const handleDrop = useCallback(
+    (el, target, source) => {
+      const sourceId = source.classList.contains('card-body');
+      const targetId = target.classList.contains('card-body');
+      // onChange({
+      //   source: { listId: sourceId, itemIds: 1 },
+      //   target: { listId: targetId, itemIds: 2 }
+      // });
+    },
+    // [onChange]
+    []
+  );
+
+
+
   useEffect(() => {
-    let left = document.getElementById('left');
-    let right = document.getElementById('right');
-    dragula([left, right], {});
-  }, []);
+    if(!container){
+      return
+    }
+    const cards:any = Array.from(container.querySelectorAll('.card'));
+    console.log(cards);
+    const drake = dragula(cards , {
+      moves(el, source, handle) {
+        console.log(el);
+        return source.classList.contains('.card');
+      }
+    });
+    // drake.on("drop", handleDrop);
+
+    return () => {
+      drake.destroy()
+    };
+  }, [container]);
+
+  const ref = (containerEl:HTMLDivElement) => {
+    setContainer(containerEl);
+  };
 
   return (
-    <div className="pages dragclass">
+    <div className="pages dragclass" ref={ref}>
       <div id="left" className="container">
-        <Card body="Card 3" />
-        <Card body="Card 4" />
+        <Card text="Card 3" />
+        <Card text="Card 4" />
       </div>
       <div id="right" className="container">
-        <Card body="Card 1" />
-        <Card body="Card 2" />
+        <Card text="Card 1" />
+        <Card text="Card 2" />
       </div>
     </div>
   );
@@ -30,7 +66,7 @@ const Card: FC = (props: any): ReactElement => {
         <h3>Example Card Header</h3>
       </div>
       <div className="card-body">
-        <p>{props.body}</p>
+        <p>{props.text}</p>
       </div>
     </div>
   );
