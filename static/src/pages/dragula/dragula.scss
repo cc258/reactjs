@@ -1,0 +1,49 @@
+.pages.dragula {
+  background: #9cc;
+  .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+  .left {
+    flex: 1;
+    padding: 8px;
+    background: #c99;
+  }
+  .right {
+    flex: 1;
+    padding: 8px;
+    background: #9c9;
+  }
+
+  .drag-block {
+    display: block;
+    cursor: pointer;
+    width: 300px;
+    height: 30px;
+    margin: 8px;
+    line-height: 30px;
+    background: #999;
+    border-radius: 5px;
+  }
+
+  // Dragula css
+  .gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 1;
+  }
+  .gu-hide {
+    display: none !important;
+  }
+  .gu-unselectable {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+  .gu-transit {
+    opacity: 0.2;
+  }
+}

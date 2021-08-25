@@ -1,6 +1,10 @@
 import React, { lazy } from 'react';
 
 const Home = lazy(() => import('../src/pages/home/home'));
+const Drag = lazy(() => import('../src/pages/drag/drag'));
+const DragHook = lazy(() => import('../src/pages/draghook/draghook'));
+const DragClass = lazy(() => import('../src/pages/dragClass/dragClass'));
+const DragulaPage = lazy(() => import('../src/pages/dragula/dragula'));
 const Table = lazy(() => import('../src/pages/table/table'));
 const Es = lazy(() => import('../src/pages/es/es'));
 const LifeCycle = lazy(() => import('../src/pages/lifecycle/lifecycle'));
@@ -15,6 +19,30 @@ const routes = [
     component: Home,
     exact: true,
     title: 'Home',
+  },
+  {
+    path: '/draghook',
+    component: DragHook,
+    exact: true,
+    title: 'DragHook',
+  },
+  {
+    path: '/dragClass',
+    component: DragClass,
+    exact: true,
+    title: 'DragClass',
+  },
+  {
+    path: '/dragula',
+    component: DragulaPage,
+    exact: true,
+    title: 'DragulaPage',
+  },
+  {
+    path: '/drag',
+    component: Drag,
+    exact: true,
+    title: 'Drag',
   },
   {
     path: '/table',

@@ -11,7 +11,7 @@ class Routers extends React.Component {
 				<nav className="nav">
 					<ul>
 						{routes.map((route, i) => (
-							<li>
+							<li key={i}>
 								<Link to={route.path}>{route.title}</Link>
 							</li>
 						))}
