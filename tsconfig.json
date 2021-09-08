@@ -2,6 +2,7 @@
 	"compilerOptions": {
 		// For every flag option that can be passed to the CLI
 		"allowSyntheticDefaultImports": true,
+		"strict": true,
 
 		"module": "esnext",
 		"noImplicitAny": true,
