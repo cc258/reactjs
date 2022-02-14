@@ -16,11 +16,7 @@ const socketPort = { port: 7080 };
 const public = "../static/dist";
 
 // 处理跨域的配置
-app.use(
-  cors({
-    origin: "*"
-  })
-);
+app.use(cors({}));
 
 app.use(bodyParser());
 app.use(static(path.resolve(__dirname, public)));

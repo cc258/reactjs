@@ -7,6 +7,7 @@ const Home = require('./controller/home');
 const Api = require('./controller/api');
 
 module.exports = routers
+  .get('/compaigns', Api.getCompaigns)
   .post('/api/v1/widget', Api.getWidget)
   .get('/getUsers', Api.getUsers)
   .get('/api/getData', Api.getData)

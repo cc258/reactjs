@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 
 const Home = lazy(() => import('../src/pages/home/home'));
+const D3 = lazy(() => import('../src/pages/d3-learning/d3'));
 const Drag = lazy(() => import('../src/pages/drag/drag'));
 const DragHook = lazy(() => import('../src/pages/draghook/draghook'));
 const DragClass = lazy(() => import('../src/pages/dragClass/dragClass'));
@@ -19,6 +20,12 @@ const routes = [
     component: Home,
     exact: true,
     title: 'Home',
+  },
+  {
+    path: '/D3',
+    component: D3,
+    exact: true,
+    title: 'D3',
   },
   {
     path: '/draghook',

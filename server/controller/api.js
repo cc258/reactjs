@@ -1,8 +1,42 @@
 const Star = require('../models/star');
 
 module.exports = class Api {
+  static async getCompaigns(ctx) {
+    ctx.body = {
+      name: 'IVI v2 Sweden',
+      model: 'Vallente',
+      count: 25000,
+      date: '2021-11-01 - 2021-11-30',
+      status: 'Active',
+      creator: 'benny.good@man.com',
+      subCampaign: [
+        {
+          name: 'IVI v2 Sweden_1',
+          model: 'Vallente',
+          count: 10000,
+          date: '2021-11-01 - 2021-11-30',
+          status: 'Finished',
+        },
+        {
+          name: 'IVI v2 Sweden_2',
+          model: 'Vallente',
+          count: 10000,
+          date: '2021-11-01 - 2021-11-30',
+          status: 'Ongoing',
+        },
+        {
+          name: 'IVI v2 Sweden_3',
+          model: 'Vallente',
+          count: 10000,
+          date: '2021-11-01 - 2021-11-30',
+          status: 'Pending start',
+        },
+      ],
+    };
+  }
+
   static async getUsers(ctx) {
-    ctx.body = { "name": "cc", "id": "123" };
+    ctx.body = { name: 'cc', id: '123' };
   }
   static async getData(ctx) {
     ctx.body = { lastResetTime: 1571372840000 };
