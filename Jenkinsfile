@@ -9,10 +9,9 @@ pipeline {
         HOME = '.'
     }
     stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install --legacy-peer-deps' 
-            }
+        stage('Build') {
+            sh 'echo "Start"'
+            sh 'npm install --legacy-peer-deps'
         }
     }
 }
