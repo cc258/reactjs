@@ -10,8 +10,9 @@ pipeline {
     }
     stages {
         stage('Build') {
-            sh 'echo "Start"'
+            sh 'echo "=== Start ==="'
             sh 'npm install --legacy-peer-deps'
+            sh 'echo "=== End ==="'
         }
     }
 }
