@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 
 const Home = lazy(() => import('../src/pages/home/home'));
-const D3 = lazy(() => import('../src/pages/d3-learning/d3'));
+const Jotai = lazy(() => import('../src/pages/jotai/jotai'));
 const Drag = lazy(() => import('../src/pages/drag/drag'));
 const DragHook = lazy(() => import('../src/pages/draghook/draghook'));
 const DragClass = lazy(() => import('../src/pages/dragClass/dragClass'));
@@ -11,6 +11,7 @@ const Es = lazy(() => import('../src/pages/es/es'));
 const LifeCycle = lazy(() => import('../src/pages/lifecycle/lifecycle'));
 const SimpleTest = lazy(() => import('../src/pages/simple-test/simple-test'));
 const SimpleMemo = lazy(() => import('../src/pages/simple-memo/simple-memo'));
+const ControlMemo = lazy(() => import('../src/pages/control/control'));
 const ListApi = lazy(() => import('../src/pages/list-api/list-api'));
 const NotFound = lazy(() => import('../src/pages/not-found/not-found'));
 
@@ -22,10 +23,10 @@ const routes = [
     title: 'Home',
   },
   {
-    path: '/D3',
-    component: D3,
+    path: '/jotai',
+    component: Jotai,
     exact: true,
-    title: 'D3',
+    title: 'Jotai',
   },
   {
     path: '/draghook',
@@ -74,6 +75,12 @@ const routes = [
     component: SimpleMemo,
     exact: true,
     title: 'Memo',
+  },
+  {
+    path: '/control',
+    component: ControlMemo,
+    exact: true,
+    title: 'control',
   },
   {
     path: '/listapi',

@@ -16,7 +16,8 @@
   "dependencies": {
     "@koa/router": "^10.0.0",
     "axios": "^0.21.1",
-    "d3": "^7.2.0",
+    "countries-name": "^1.0.0",
+    "jotai": "^1.7.7",
     "koa": "^2.13.1",
     "koa-body": "4.2.0",
     "koa-bodyparser": "^4.3.0",

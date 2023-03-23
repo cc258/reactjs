@@ -40,7 +40,6 @@ const DragHook: FC = (props: any): ReactElement => {
         return source.classList.contains('container');
       }
     });
-    drake.on("drag", handleDrag);
     drake.on("drop", handleDrop);
 
     return () => {
