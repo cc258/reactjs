@@ -26,9 +26,9 @@ const Control = props => {
   );
 };
 
-const ChildInput = ({ text, value, onChange }) => {
+const ChildInput = ({ text, defaultValue, value = '', onChange }) => {
   console.log('Child Three rendering');
-  const [inputValue, setInputValue] = useState(value);
+  const [inputValue, setInputValue] = useState(value || defaultValue);
 
   const handChange = e => {
     const v = e.target.value;

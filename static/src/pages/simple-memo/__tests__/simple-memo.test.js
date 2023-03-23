@@ -14,17 +14,13 @@ describe('<SimpleMemo />', () => {
 
     await act(async () => {
       render(
-        <IntlProvider onError={() => {}}>
+        <IntlProvider onError={() => { }}>
           <SimpleMemo />
         </IntlProvider>,
       );
     });
 
     // Make sure to resolve with a promise
-
-    // 验证页面元素是否存在
-    const hello = screen.getByRole('hello');
-    expect(hello).toBeInTheDocument();
 
     // 测试函数
     const countStars = screen.getByRole('countStars');

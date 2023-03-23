@@ -65,7 +65,6 @@ const Simple: React.FC<SimpleProps> = ({ name = 'leo', age = 18 }) => {
 
   return (
     <section className="pages">
-      <h1 role="hello">{f({ id: 'hello' })}</h1>
       <h1 role="countStars" onClick={onStars}>
         {stars}
       </h1>
