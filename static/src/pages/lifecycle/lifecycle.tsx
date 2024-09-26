@@ -17,6 +17,7 @@ export default class LifeCycle extends Component<LifeCycleProps, LifeCycleStates
   };
   constructor(props: LifeCycleProps) {
     super(props);
+    // 初始化有关联的state.
     this.state = { number: 0, users: [] };
     console.log('1. constructor 初始化 props and state');
   }
@@ -26,6 +27,8 @@ export default class LifeCycle extends Component<LifeCycleProps, LifeCycleStates
   //一般是在componentDidMount执行副作用，进行异步操作
   componentDidMount() {
     console.log('3. componentDidMount 组件挂载完成');
+    const { number, users } = this.state;
+    this.setState({number: users.length ? 1: 2})
     this.getUsers();
   }
   shouldComponentUpdate(nextProps: LifeCycleProps, nextState: LifeCycleStates) {
@@ -56,9 +59,9 @@ export default class LifeCycle extends Component<LifeCycleProps, LifeCycleStates
   render() {
     console.log('2.render渲染，也就是挂载++++++++++++++++++', this.state);
     return (
-      <div style={{ border: '5px solid red', padding: '5px' }}>
+      <div style={{ border: '5px solid red', padding: '45px 20px' }}>
         <p>
-          {this.props.name}:{this.state.number}
+          name: {this.props.name}, number: {this.state.number}
         </p>
         <button onClick={this.add}>+</button>
         <ul>
