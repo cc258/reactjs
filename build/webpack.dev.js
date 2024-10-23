@@ -38,15 +38,6 @@ const devServerConfig = {
     // },
     historyApiFallback: true
   },
-  plugins: [
-    // 插件~
-    new BundleAnalyzerPlugin({ analyzerPort: 8081, openAnalyzer: false }),
-    new webpack.DefinePlugin({
-      "process.env": {
-        VUEP_BASE_URL: "/"
-      }
-    })
-  ]
 };
 
 module.exports = merge(commonConfig, devServerConfig);

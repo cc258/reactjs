@@ -13,6 +13,7 @@ const SimpleTest = lazy(() => import('../src/pages/simple-test/simple-test'));
 const SimpleMemo = lazy(() => import('../src/pages/simple-memo/simple-memo'));
 const ControlMemo = lazy(() => import('../src/pages/control/control'));
 const ListApi = lazy(() => import('../src/pages/list-api/list-api'));
+const ChromeMemo = lazy(() => import('../src/pages/chrome/chrome'));
 const NotFound = lazy(() => import('../src/pages/not-found/not-found'));
 
 const routes = [
@@ -21,6 +22,12 @@ const routes = [
     component: Home,
     exact: true,
     title: 'Home',
+  },
+  {
+    path: '/chrome',
+    component: ChromeMemo,
+    exact: true,
+    title: 'Chrome',
   },
   {
     path: '/jotai',
