@@ -32,7 +32,6 @@ const ChildInput = ({ text, defaultValue, value = '', onChange }) => {
 
   const handChange = e => {
     const v = e.target.value;
-    // setInputValue(v);
     onChange(v);
   };
   return (
