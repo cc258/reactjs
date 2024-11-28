@@ -1,5 +1,7 @@
 # reactjs
 
+node: 12.16.2
+
 # Resources interesting
 
 [React 源码解析](https://react.jokcy.me/book/api/react.html)

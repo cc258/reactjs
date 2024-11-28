@@ -21,7 +21,7 @@ const Jotai: React.FC<JotaiProps> = () => {
 	return (
 		<div className="pages jotai" role="jotai" id="jotai" onClick={()=>{console.log("jotai")}}>
 			<h1 onClick={()=>{console.log("h1")}}></h1>
-			<h1>In the end, abc 123321</h1>
+			<h1>In the end, abc </h1>
 			<h2>everything will have a happy ending. </h2>
 			<h3>If it's not happy, </h3>
 			<h4>then it's not the end.</h4>

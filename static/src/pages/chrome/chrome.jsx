@@ -1,6 +1,5 @@
-import React, { memo, useState, useEffect, useCallback, useContext, useReducer, useRef } from 'react';
-import { Row, Col, Button, Checkbox, Form, Input, Switch,Table, InputNumber, Popconfirm } from 'antd';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { memo, useState, useEffect } from 'react';
+import { Form, Input, Table, InputNumber, Popconfirm } from 'antd';
 
 /* Chrome调试技巧 */
 const Chrome = () => {
@@ -23,14 +22,12 @@ const Chrome = () => {
   console.table(obj.like);
   console.table(obj.like && obj.like.ball);
 
-
   return (
     <section className="pages">
       <EditableTable />
     </section>
   );
 };
-
 
 const data = [];
 for (let i = 0; i < 100; i++) {
@@ -58,27 +55,13 @@ class EditableCell extends React.Component {
   };
 
   renderCell = ({ getFieldDecorator }) => {
-    const {
-      editing,
-      dataIndex,
-      title,
-      inputType,
-      record,
-      index,
-      children,
-      ...restProps
-    } = this.props;
+    const { editing, dataIndex, title, inputType, rules, record, index, children, ...restProps } = this.props;
     return (
       <td {...restProps}>
         {editing ? (
           <Form.Item style={{ margin: 0 }}>
             {getFieldDecorator(dataIndex, {
-              rules: [
-                {
-                  required: true,
-                  message: `Please Input ${title}!`,
-                },
-              ],
+              rules,
               initialValue: record[dataIndex],
             })(this.getInput())}
           </Form.Item>
@@ -103,18 +86,21 @@ class EditableTable extends React.Component {
         title: 'name',
         dataIndex: 'name',
         width: '25%',
+        rules: [{ require: true, message: '' }],
         editable: true,
       },
       {
         title: 'age',
         dataIndex: 'age',
         width: '15%',
+        rules: [{ type: 'number', min: 0.4, message: '数值必须大于0.5' }],
         editable: true,
       },
       {
         title: 'address',
         dataIndex: 'address',
         width: '40%',
+        rules: [{ type: 'number', min: 0.4, message: '数值必须大于0.5' }],
         editable: true,
       },
       {
@@ -127,10 +113,7 @@ class EditableTable extends React.Component {
             <span>
               <EditableContext.Consumer>
                 {form => (
-                  <a
-                    onClick={() => this.save(form, record.key)}
-                    style={{ marginRight: 8 }}
-                  >
+                  <a onClick={() => this.save(form, record.key)} style={{ marginRight: 8 }}>
                     Save
                   </a>
                 )}
@@ -177,7 +160,7 @@ class EditableTable extends React.Component {
   }
 
   edit(key) {
-    console.log('click key: ', key)
+    console.log('click key: ', key);
     this.setState({ editingKey: key });
   }
 
@@ -200,26 +183,26 @@ class EditableTable extends React.Component {
           inputType: col.dataIndex === 'age' ? 'number' : 'text',
           dataIndex: col.dataIndex,
           title: col.title,
+          rules: col.rules,
           editing: this.isEditing(record),
         }),
       };
     });
 
     return (
-        <Table
-          components={components}
-          bordered
-          dataSource={this.state.data}
-          columns={columns}
-          rowClassName="editable-row"
-          pagination={{
-            onChange: this.cancel,
-          }}
-        />
+      <Table
+        components={components}
+        bordered
+        dataSource={this.state.data}
+        columns={columns}
+        rowClassName="editable-row"
+        pagination={{
+          onChange: this.cancel,
+        }}
+      />
     );
   }
 }
-
 
 const ChromeMemo = memo(Chrome);
 
