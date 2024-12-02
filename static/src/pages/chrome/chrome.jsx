@@ -1,10 +1,12 @@
 import React, { memo, useState, useEffect } from 'react';
-import { Form, Input, Table, InputNumber, Popconfirm } from 'antd';
+import { Form, Input, Table, InputNumber, Popconfirm, Upload } from 'antd';
 
 /* Chrome调试技巧 */
 const Chrome = () => {
   const [obj, setObj] = useState({});
   // const [edit, setEdit] = useState(false);
+  const [paymentFileId, setPaymentFileId] = useState([]);
+  const [popFileIds, setPopFileIds] = useState([]);
 
   const Kaselin = 18;
 
@@ -16,16 +18,141 @@ const Chrome = () => {
     });
   }, []);
 
-  // console.table 适合调试层级少的 Object, Array:
-  console.clear();
-  console.table(obj);
-  console.table(obj.like);
-  console.table(obj.like && obj.like.ball);
+  // console.table 适合调试层级少的 Object, Array:123
+  // console.clear();
+  // console.table(obj);
+  // console.table(obj.like);
+  // console.table(obj.like && obj.like.ball);
+
+  const onPaymentUpload = files => {
+    console.log(files);
+    // const file = { fileId: res.fileId, uid: res.uid, name: res.name };
+    setPaymentFileId(files);
+  };
+  const onPopUpload = files => {
+    console.log(files);
+    // const file = { fileId: res.fileId, uid: res.uid, name: res.name };
+    setPopFileIds(files);
+  };
+
+  const paymentUpload = {
+    fileList: paymentFileId,
+    onChange: onPaymentUpload,
+    accept: '.xls,.xlsx',
+    label: 'Payment File:',
+  };
+
+  const popUpload = {
+    fileList: popFileIds,
+    onChange: onPopUpload,
+    multiple: true,
+    note: <p>1.单个文件不能超出200M。</p>,
+    accept: '.xls,.xlsx',
+    label: 'POP:',
+    total: 1,
+  };
 
   return (
     <section className="pages">
+      <div style={{ width: '400px', margin: '0 auto' }}>
+        <DraggerFile {...paymentUpload} />
+        <DraggerFile {...popUpload} />
+      </div>
       <EditableTable />
     </section>
+  );
+};
+
+const DraggerFile = ({
+  fileList = [],
+  onChange,
+  note = '',
+  text = '',
+  accept = ACCEPT_TYPE,
+  multiple = false,
+  label = '文件上传',
+  total = 0,
+}) => {
+  const judgeFileExtensionIsAccepted = fileName => {
+    let fileExtension = fileName.substring(fileName.lastIndexOf('.'));
+    let fileAcceptTypes = accept.split(',');
+    return fileAcceptTypes.includes(fileExtension);
+  };
+
+  // 文件上传前大小校验
+  const beforeUpload = file => {
+    let fileSizeLarger = file.size > FILE_SIZE_200M;
+    let fileExtensionIsAccepted = judgeFileExtensionIsAccepted(file.name);
+    if (fileSizeLarger) {
+      message.error(`${file.name} upload failed. Maximum size of a single file should not exceed 200M`);
+    } else if (!fileExtensionIsAccepted) {
+      message.error(`${file.name} upload failed. Only files in specified format can be uploaded`);
+    }
+    return fileExtensionIsAccepted && !fileSizeLarger;
+  };
+
+  const onRemove = file => {
+    const files = fileList.filter(item => file.uid !== item.uid);
+    onChange(files);
+  };
+
+  const handleChange = info => {
+    let { fileList } = info;
+    onChange(fileList);
+  };
+
+  // 自定义上传
+  const customRequest = async ({ file, onSuccess, onError, onProgress }) => {
+    let data = {
+      params: { files: file },
+    };
+    let config = {
+      progressCallBack: percent => {
+        onProgress({ percent });
+      },
+    };
+    try {
+      const res = await Promise.resolve({ fileId: 'wq2eeqweqwe121312eqwe' });
+
+      onSuccess(res);
+      const FileId = res.fileId;
+      if (FileId) {
+        const fileHasId = { uid: file.uid, name: file.name, fileId: FileId };
+        if (multiple) {
+          onChange([...fileList, fileHasId]);
+        } else {
+          onChange([fileHasId]);
+        }
+        // message.success(`${file.name} file uploaded successfully.`);
+      }
+    } catch (e) {
+      // message.error(`${file.name} file upload failed.`);
+    }
+  };
+
+  return (
+    <div>
+      <div>{label}</div>
+      <div className="upload-tip">{note}</div>
+      <Upload.Dragger
+        accept={accept}
+        multiple={multiple}
+        fileList={fileList}
+        // beforeUpload={beforeUpload}
+        customRequest={customRequest}
+        onRemove={onRemove}
+        // onChange={handleChange}
+      >
+        <p className="ant-upload-drag-icon">{/* <Icon type="inbox" /> */}</p>
+        <p className="ant-upload-text">{text} Click or drag file to this area to upload</p>
+        <p className="ant-upload-hint">
+          Accept Type
+          <br />
+          {accept}
+        </p>
+      </Upload.Dragger>
+      {total ? <p>{`total: ${fileList.length} file(s)`}</p> : null}
+    </div>
   );
 };
 
