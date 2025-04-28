@@ -44,7 +44,7 @@
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",
-    "ws": "^7.5.3"
+    "ws": "^8.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
